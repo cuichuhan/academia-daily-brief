@@ -1,0 +1,724 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>学术日报 · 2026-08-24</title>
+<style>
+  :root{
+    --bg:#F4F2EC;
+    --surface:#FFFFFF;
+    --surface-2:#ECE9E1;
+    --border:#DEDACF;
+    --ink:#1E2126;
+    --ink-muted:#5B5F66;
+    --ink-faint:#8A8D93;
+    --accent:#35507A;
+    --accent-ink:#FFFFFF;
+    --good:#2E7D46;
+    --good-bg:#E4F1E7;
+    --warn:#A6720E;
+    --warn-bg:#F5ECD8;
+    --none:#75787E;
+    --none-bg:#EAE8E2;
+    --shadow:0 1px 2px rgba(30,33,38,.06),0 4px 14px rgba(30,33,38,.05);
+    --serif:"Iowan Old Style","Palatino Linotype",Palatino,"Hoefler Text",Georgia,serif;
+    --sans:Optima,Candara,"Noto Sans SC","Segoe UI",system-ui,-apple-system,sans-serif;
+    --mono:ui-monospace,"SF Mono","Cascadia Code",Consolas,"Liberation Mono",monospace;
+  }
+  @media (prefers-color-scheme: dark){
+    :root{
+      --bg:#14171B;
+      --surface:#1C2027;
+      --surface-2:#20242C;
+      --border:#2E323B;
+      --ink:#E9E8E3;
+      --ink-muted:#A4A9B1;
+      --ink-faint:#767B84;
+      --accent:#8CA3CC;
+      --accent-ink:#0F141C;
+      --good:#7FD09B;
+      --good-bg:#1C2E22;
+      --warn:#E7BB5C;
+      --warn-bg:#332A16;
+      --none:#8A8F97;
+      --none-bg:#22252B;
+      --shadow:0 1px 2px rgba(0,0,0,.4),0 8px 20px rgba(0,0,0,.35);
+    }
+  }
+  :root[data-theme="dark"]{
+    --bg:#14171B;--surface:#1C2027;--surface-2:#20242C;--border:#2E323B;
+    --ink:#E9E8E3;--ink-muted:#A4A9B1;--ink-faint:#767B84;
+    --accent:#8CA3CC;--accent-ink:#0F141C;
+    --good:#7FD09B;--good-bg:#1C2E22;--warn:#E7BB5C;--warn-bg:#332A16;--none:#8A8F97;--none-bg:#22252B;
+    --shadow:0 1px 2px rgba(0,0,0,.4),0 8px 20px rgba(0,0,0,.35);
+  }
+  :root[data-theme="light"]{
+    --bg:#F4F2EC;--surface:#FFFFFF;--surface-2:#ECE9E1;--border:#DEDACF;
+    --ink:#1E2126;--ink-muted:#5B5F66;--ink-faint:#8A8D93;
+    --accent:#35507A;--accent-ink:#FFFFFF;
+    --good:#2E7D46;--good-bg:#E4F1E7;--warn:#A6720E;--warn-bg:#F5ECD8;--none:#75787E;--none-bg:#EAE8E2;
+    --shadow:0 1px 2px rgba(30,33,38,.06),0 4px 14px rgba(30,33,38,.05);
+  }
+
+  *{box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{
+    margin:0;
+    background:var(--bg);
+    color:var(--ink);
+    font-family:var(--sans);
+    line-height:1.55;
+    -webkit-font-smoothing:antialiased;
+  }
+  @media (prefers-reduced-motion: reduce){ html{scroll-behavior:auto;} }
+
+  .wrap{max-width:920px;margin:0 auto;padding:0 20px 80px;}
+
+  header.masthead{
+    border-bottom:3px double var(--border);
+    padding:36px 0 20px;
+    margin-bottom:8px;
+  }
+  .kicker{
+    font-family:var(--mono);
+    font-size:12px;
+    letter-spacing:.12em;
+    text-transform:uppercase;
+    color:var(--accent);
+  }
+  h1.title{
+    font-family:var(--serif);
+    font-size:44px;
+    font-weight:600;
+    margin:6px 0 4px;
+    text-wrap:balance;
+    letter-spacing:-.01em;
+  }
+  .subtitle{
+    color:var(--ink-muted);
+    font-size:15px;
+    margin:0;
+  }
+  .subtitle .divider{margin:0 8px;color:var(--ink-faint);}
+
+  .notice{
+    background:var(--warn-bg);
+    border:1px solid var(--warn);
+    border-radius:10px;
+    padding:14px 18px;
+    margin:18px 0 0;
+    font-size:14px;
+    color:var(--ink);
+  }
+  .notice b{color:var(--warn);}
+
+  .stats{
+    display:grid;
+    grid-template-columns:repeat(4,1fr);
+    gap:1px;
+    background:var(--border);
+    border:1px solid var(--border);
+    border-radius:10px;
+    overflow:hidden;
+    margin:28px 0 36px;
+  }
+  .stat{
+    background:var(--surface);
+    padding:16px 14px;
+  }
+  .stat .n{
+    font-family:var(--mono);
+    font-variant-numeric:tabular-nums;
+    font-size:26px;
+    font-weight:600;
+    color:var(--ink);
+  }
+  .stat .n small{font-size:14px;color:var(--ink-faint);font-weight:500;}
+  .stat .label{font-size:12.5px;color:var(--ink-muted);margin-top:2px;}
+  @media (max-width:640px){ .stats{grid-template-columns:repeat(2,1fr);} }
+
+  nav.toc{
+    display:flex;
+    flex-wrap:wrap;
+    gap:6px 10px;
+    padding:10px 14px;
+    background:var(--surface-2);
+    border:1px solid var(--border);
+    border-radius:10px;
+    margin-bottom:44px;
+    font-size:13.5px;
+  }
+  nav.toc a{color:var(--ink-muted);text-decoration:none;padding:2px 4px;border-bottom:1px solid transparent;}
+  nav.toc a:hover{color:var(--accent);border-color:var(--accent);}
+  nav.toc .sep{color:var(--border);}
+
+  section{margin-bottom:56px;scroll-margin-top:16px;}
+  .section-head{
+    display:flex;
+    align-items:baseline;
+    justify-content:space-between;
+    gap:16px;
+    border-bottom:1px solid var(--border);
+    padding-bottom:10px;
+    margin-bottom:18px;
+  }
+  h2.section-title{
+    font-family:var(--serif);
+    font-size:26px;
+    font-weight:600;
+    margin:0;
+  }
+  .section-note{font-size:13px;color:var(--ink-faint);text-align:right;max-width:260px;}
+  h3.discipline{
+    font-family:var(--sans);
+    font-size:13px;
+    font-weight:700;
+    letter-spacing:.08em;
+    text-transform:uppercase;
+    color:var(--accent);
+    margin:26px 0 10px;
+  }
+  h3.discipline .count{color:var(--ink-faint);font-weight:500;text-transform:none;letter-spacing:0;}
+
+  p.lede{color:var(--ink-muted);font-size:15px;max-width:66ch;}
+
+  details.journal{
+    background:var(--surface);
+    border:1px solid var(--border);
+    border-radius:10px;
+    margin-bottom:10px;
+    box-shadow:var(--shadow);
+  }
+  details.journal + details.journal{margin-top:10px;}
+  details.journal summary{
+    list-style:none;
+    cursor:pointer;
+    padding:13px 16px;
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    gap:12px;
+    font-size:15px;
+  }
+  details.journal summary::-webkit-details-marker{display:none;}
+  summary .j-name{font-weight:600;}
+  summary .j-name .abbr{color:var(--ink-faint);font-weight:500;font-size:13px;margin-left:4px;}
+  summary .j-right{display:flex;align-items:center;gap:10px;flex-shrink:0;}
+  summary .chevron{
+    color:var(--ink-faint);
+    transition:transform .15s ease;
+    font-size:11px;
+  }
+  details[open] summary .chevron{transform:rotate(90deg);}
+
+  .pill{
+    font-family:var(--mono);
+    font-size:11px;
+    letter-spacing:.02em;
+    padding:3px 9px;
+    border-radius:999px;
+    white-space:nowrap;
+  }
+  .pill-found{background:var(--good-bg);color:var(--good);}
+  .pill-partial{background:var(--warn-bg);color:var(--warn);}
+  .pill-none{background:var(--none-bg);color:var(--none);}
+
+  .j-body{padding:0 16px 16px;border-top:1px solid var(--border);}
+  .paper{padding:16px 0;}
+  .paper + .paper{border-top:1px dashed var(--border);}
+  .paper h4{
+    font-family:var(--serif);
+    font-size:17px;
+    font-weight:600;
+    margin:0 0 6px;
+    text-wrap:balance;
+  }
+  .byline{font-size:13px;color:var(--ink-muted);margin:0 0 10px;}
+  .byline .date{font-family:var(--mono);color:var(--ink-faint);}
+  dl.facts{margin:0 0 10px;font-size:13.5px;}
+  dl.facts > div{display:grid;grid-template-columns:64px 1fr;gap:2px 12px;}
+  dl.facts > div + div{margin-top:5px;}
+  dl.facts dt{color:var(--ink-faint);font-size:11.5px;text-transform:uppercase;letter-spacing:.06em;padding-top:1px;}
+  dl.facts dd{margin:0;color:var(--ink);}
+  a.src{
+    display:inline-flex;
+    align-items:center;
+    gap:4px;
+    font-size:12.5px;
+    font-family:var(--mono);
+    color:var(--accent);
+    text-decoration:none;
+    border-bottom:1px solid transparent;
+  }
+  a.src:hover{border-color:var(--accent);}
+  .note-inline{font-size:12.5px;color:var(--ink-faint);font-style:italic;margin:4px 0 0;}
+
+  ul.newslist{list-style:none;margin:0;padding:0;}
+  ul.newslist li{
+    padding:11px 0;
+    border-top:1px solid var(--border);
+    font-size:14px;
+  }
+  ul.newslist li:first-child{border-top:none;}
+  ul.newslist .h-title{font-weight:600;}
+  ul.newslist .h-meta{color:var(--ink-faint);font-size:12.5px;margin-left:6px;font-family:var(--mono);}
+  ul.newslist a{color:var(--accent);text-decoration:none;font-size:12.5px;font-family:var(--mono);margin-left:8px;}
+
+  .tier{margin-bottom:26px;}
+  .tier-label{
+    display:flex;align-items:center;gap:8px;
+    font-size:13px;font-weight:700;letter-spacing:.03em;color:var(--ink-muted);
+    margin-bottom:10px;
+  }
+  .tier-label .dot{width:8px;height:8px;border-radius:50%;flex-shrink:0;}
+  .scholar{
+    background:var(--surface);
+    border:1px solid var(--border);
+    border-radius:10px;
+    padding:14px 16px;
+    margin-bottom:8px;
+  }
+  .scholar-head{display:flex;justify-content:space-between;gap:10px;flex-wrap:wrap;}
+  .scholar-name{font-weight:700;font-size:14.5px;}
+  .scholar-org{color:var(--ink-faint);font-size:12.5px;font-weight:400;}
+  .scholar-date{font-family:var(--mono);font-size:11.5px;color:var(--ink-faint);white-space:nowrap;}
+  .scholar p{font-size:13.5px;margin:6px 0 4px;color:var(--ink);}
+  .scholar a{font-family:var(--mono);font-size:12px;color:var(--accent);text-decoration:none;}
+
+  .sources-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:10px;}
+  @media (max-width:640px){.sources-grid{grid-template-columns:1fr;}}
+  .source-card{
+    background:var(--surface);border:1px solid var(--border);border-radius:10px;
+    padding:14px 16px;
+  }
+  .source-card h4{margin:0 0 4px;font-size:14.5px;font-family:var(--serif);}
+  .source-card p{margin:0;font-size:13px;color:var(--ink-muted);}
+
+  .callout{
+    background:var(--surface-2);
+    border:1px solid var(--border);
+    border-left:3px solid var(--accent);
+    border-radius:6px;
+    padding:16px 18px;
+    font-size:13.5px;
+    color:var(--ink-muted);
+  }
+  .callout h4{margin:0 0 8px;color:var(--ink);font-size:14px;}
+  .callout ul{margin:0;padding-left:18px;}
+  .callout li{margin-bottom:6px;}
+
+  footer{
+    border-top:1px solid var(--border);
+    padding-top:18px;
+    font-size:12px;
+    color:var(--ink-faint);
+    font-family:var(--mono);
+  }
+</style>
+</head>
+<body>
+
+<div class="wrap">
+
+  <header class="masthead">
+    <div class="kicker">学术情报 · Daily Research Brief</div>
+    <h1 class="title">学术日报 · 2026-08-24</h1>
+    <p class="subtitle">2026年8月24日（周一）<span class="divider">·</span>金融F4 &amp; UTD24顶刊 &amp; 经济学五大顶刊 &amp; 学者动态</p>
+    <div class="notice"><b>今日概况：</b>周一是本周首个工作日，出版节奏开始恢复，但幅度有限。金融F4与经济学五大顶刊（共9本）经Crossref逐刊核实，<b>本次窗口内仍全部无新增</b>；UTD24其余20刊中<b>仅Strategic Management Journal新增1篇文章</b>（Heejung Byun，Penn State Smeal，created 8/23）。学者动态方面，<b>Tyler Cowen（8/24新博客）与Daron Acemoglu（8/23在X回应《经济学人》批评文章）为窗口内明确新增</b>，另发现Paul Krugman 8/22有一篇此前未收录的新文章（严格说略早于本次窗口起点，但晚于此前报告已收录内容，一并纳入）。信息源方面arXiv q-fin周一新批次（8篇）已上线；NBER征稿"Economic Analysis of Business Taxation"距截止仅剩2天。</div>
+  </header>
+
+  <div class="stats">
+    <div class="stat"><div class="n">29</div><div class="label">监测顶刊数（UTD24 24本 + 经济学5本）</div></div>
+    <div class="stat"><div class="n">1</div><div class="label">窗口内确认新研究论文数（SMJ）</div></div>
+    <div class="stat"><div class="n">1<small>/29</small></div><div class="label">窗口内有新内容的期刊</div></div>
+    <div class="stat"><div class="n">3<small>/20</small></div><div class="label">学者动态确认新更新（Cowen/Acemoglu/Krugman）</div></div>
+  </div>
+
+  <nav class="toc">
+    <a href="#f4">金融F4</a><span class="sep">/</span>
+    <a href="#other-utd24">其他UTD24顶刊</a><span class="sep">/</span>
+    <a href="#econ">经济学五大顶刊</a><span class="sep">/</span>
+    <a href="#scholars">学者动态</a><span class="sep">/</span>
+    <a href="#conferences">会议·征稿·热点</a><span class="sep">/</span>
+    <a href="#sources">其他信息源</a><span class="sep">/</span>
+    <a href="#methodology">数据说明与局限</a>
+  </nav>
+
+  <!-- ================= FINANCE F4 ================= -->
+  <section id="f4">
+    <div class="section-head">
+      <h2 class="section-title">金融学 F4</h2>
+      <div class="section-note">Journal of Finance · JFE · RFS · JFQA</div>
+    </div>
+    <p class="lede">用Crossref API（<code>filter=issn:...,from-created-date:2026-08-22</code>，并交叉核验不设日期过滤的最新记录）逐刊核实。<b>四刊本次窗口内均无新增文章</b>，周一发布节奏尚未在Crossref索引中体现新内容。</p>
+
+    <details class="journal">
+      <summary>
+        <span class="j-name">Journal of Finance <span class="abbr">JF</span></span>
+        <span class="j-right"><span class="pill pill-partial">无新增，最新仍为8/22（已在此前报告收录）</span><span class="chevron">▶</span></span>
+      </summary>
+      <div class="j-body"><p class="note-inline">Crossref日期过滤仅返回"Reference-Dependent Preferences and Sentiment-Driven Asset Prices"（Jess Benhabib, Zhaorui Li, Xuewen Liu, Pengfei Wang；DOI 10.1111/jofi.70079；created 8/22），已在2026-08-23报告中收录，不重复列出。无更晚新增。</p></div>
+    </details>
+
+    <details class="journal">
+      <summary>
+        <span class="j-name">Journal of Financial Economics <span class="abbr">JFE</span></span>
+        <span class="j-right"><span class="pill pill-partial">无更新，最新仍为8/14</span><span class="chevron">▶</span></span>
+      </summary>
+      <div class="j-body"><p class="note-inline">Crossref filter返回0条记录；最新记录仍为"A New Keynesian model of the term structures of equity and bond returns"（Pierlauro Lopez, Francisco Vazquez-Grande, David Lopez-Salido；created 8/14）。其后为"Segmented Dollar Funding"（Pēteris Kloks, Edouard Mattille, Angelo Ranaldo；created 8/12）、"Convenience lost"（Zhengyang Jiang, Robert J. Richmond, Tony Zhang；created 8/11），均早于窗口，无新增。</p></div>
+    </details>
+
+    <details class="journal">
+      <summary>
+        <span class="j-name">Review of Financial Studies <span class="abbr">RFS</span></span>
+        <span class="j-right"><span class="pill pill-partial">无更新，最新仍为8/19</span><span class="chevron">▶</span></span>
+      </summary>
+      <div class="j-body"><p class="note-inline">Crossref filter返回0条记录；最新记录仍为"Carbon Emissions and the Bank-Lending Channel"（Marcin Kacperczyk, José-Luis Peydró；created 8/19），无新增。</p></div>
+    </details>
+
+    <details class="journal">
+      <summary>
+        <span class="j-name">Journal of Financial and Quantitative Analysis <span class="abbr">JFQA</span></span>
+        <span class="j-right"><span class="pill pill-partial">无更新，最新仍为7/30</span><span class="chevron">▶</span></span>
+      </summary>
+      <div class="j-body"><p class="note-inline">Crossref filter返回0条记录；最新记录仍为"The Risk of Outsourcing: How External Advisors Influence Mutual Fund Performance"（Jung Hoon Lee, Saurin Patel, Shyam Sunder Venkatesan；created 7/30）。该刊索引已近1个月未更新，建议持续关注。</p></div>
+    </details>
+  </section>
+
+  <!-- ================= OTHER UTD24 ================= -->
+  <section id="other-utd24">
+    <div class="section-head">
+      <h2 class="section-title">其他 UTD24 顶刊（20本）</h2>
+      <div class="section-note">会计 · 管理 · 市场营销 · 信息系统 · 运营管理</div>
+    </div>
+    <p class="lede">逐一用Crossref API（ISSN精确过滤）核查20刊在8/22后至8/24的新增。<b>19本期刊无新增，仅Strategic Management Journal新增1篇文章</b>（created 8/23）——这是本轮周一发布节奏恢复后监测到的第一篇实质性新文章。ASQ返回的书评记录已在此前报告收录，不重复列出。</p>
+
+    <h3 class="discipline">会计 <span class="count">· 3本</span></h3>
+    <details class="journal">
+      <summary><span class="j-name">The Accounting Review <span class="abbr">TAR</span></span><span class="j-right"><span class="pill pill-partial">无更新，最新仍为8/18</span><span class="chevron">▶</span></span></summary>
+      <div class="j-body"><p class="note-inline">最新记录仍为"Broker In-House ESG Research"（Yixin Wei, Steven F. Cahan, Li Chen；created 8/18），无新增。</p></div>
+    </details>
+    <details class="journal">
+      <summary><span class="j-name">Journal of Accounting and Economics <span class="abbr">JAE</span></span><span class="j-right"><span class="pill pill-partial">无更新，最新仍为8/22</span><span class="chevron">▶</span></span></summary>
+      <div class="j-body"><p class="note-inline">最新记录仍为"Regulating via Social Media: Deterrence Effects of the SEC's Use of Twitter"（Raphael Duguay, Jinjie Lin, Jake Thomas, Laiyi Yin；created 8/22，已在此前报告收录），无更晚新增。</p></div>
+    </details>
+    <details class="journal">
+      <summary><span class="j-name">Journal of Accounting Research <span class="abbr">JAR</span></span><span class="j-right"><span class="pill pill-partial">无更新，最新仍为8/20</span><span class="chevron">▶</span></span></summary>
+      <div class="j-body"><p class="note-inline">最新记录仍为"Beyond Automation: AI and the Human Value of Sell-Side Analysts"（Devin Shanthikumar, Il Sun Yoo；created 8/20），无新增。</p></div>
+    </details>
+
+    <h3 class="discipline">管理 <span class="count">· 7本</span></h3>
+    <details class="journal">
+      <summary><span class="j-name">Academy of Management Journal <span class="abbr">AMJ</span></span><span class="j-right"><span class="pill pill-partial">无更新，最新仍为8/21</span><span class="chevron">▶</span></span></summary>
+      <div class="j-body"><p class="note-inline">最新记录仍为"Visible from Afar: Remote Employees' Collaboration Responsiveness to Managerial Requests"（Hui Liao等；created 8/21），无新增。</p></div>
+    </details>
+    <details class="journal">
+      <summary><span class="j-name">Academy of Management Review <span class="abbr">AMR</span></span><span class="j-right"><span class="pill pill-partial">无更新，最新仍为8/21</span><span class="chevron">▶</span></span></summary>
+      <div class="j-body"><p class="note-inline">最新记录仍为"Beyond Statically Motivated, Rational, and Atomistic Actors"（Jeffrey A. Chandler, Aaron D. Hill；created 8/21），无新增。</p></div>
+    </details>
+    <details class="journal">
+      <summary><span class="j-name">Administrative Science Quarterly <span class="abbr">ASQ</span></span><span class="j-right"><span class="pill pill-partial">无新研究论文，最新仍为8/22书评</span><span class="chevron">▶</span></span></summary>
+      <div class="j-body"><p class="note-inline">Crossref日期过滤仅返回"Book Review: Lori Rosenkopf. Unstoppable Entrepreneurs..."（Thomas Eisenmann；created 8/22），已在此前报告收录，不重复列出。窗口内无新研究论文，最近一篇实证研究论文仍为"The Politicization of Wage Setting"（created 6/13）。</p></div>
+    </details>
+    <details class="journal">
+      <summary><span class="j-name">Journal of International Business Studies <span class="abbr">JIBS</span></span><span class="j-right"><span class="pill pill-partial">无更新，最新仍为8/10</span><span class="chevron">▶</span></span></summary>
+      <div class="j-body"><p class="note-inline">最新记录仍为"A conceptual model of acculturation from a dynamic person–environment fit perspective"（Marcus A. Valenzuela等；created 8/10）。该刊online-first节奏明显放缓，建议持续关注。</p></div>
+    </details>
+    <details class="journal">
+      <summary><span class="j-name">Journal of Management <span class="abbr">JOM</span></span><span class="j-right"><span class="pill pill-partial">无更新，最新仍为8/21</span><span class="chevron">▶</span></span></summary>
+      <div class="j-body"><p class="note-inline">最新记录仍为"Countering Organizational Rigidity Through Operational Resource Bundling..."（Catherine G. Collins等；created 8/21），无新增。</p></div>
+    </details>
+    <details class="journal">
+      <summary><span class="j-name">Organization Science</span><span class="j-right"><span class="pill pill-partial">无更新，最新仍为8/21</span><span class="chevron">▶</span></span></summary>
+      <div class="j-body"><p class="note-inline">最新记录仍为"Can Task Motivation Backfire? The Roles of Perceived Task Interdependence and Interaction Avoidance"（Dan Ni等；created 8/21），无新增。</p></div>
+    </details>
+    <details class="journal">
+      <summary><span class="j-name">Strategic Management Journal <span class="abbr">SMJ</span></span><span class="j-right"><span class="pill pill-found">新增1篇（created 8/23）</span><span class="chevron">▶</span></span></summary>
+      <div class="j-body">
+        <div class="paper">
+          <h4>Are client ties pre-entry resources? Performance implications of client tie diversification</h4>
+          <p class="byline">Heejung Byun <span class="date">· created 2026-08-23</span></p>
+          <dl class="facts">
+            <div><dt>作者</dt><dd>Heejung Byun（独立作者）</dd></div>
+            <div><dt>机构</dt><dd>Management and Organization Department, Smeal College of Business, The Pennsylvania State University（美国宾夕法尼亚州立大学Smeal商学院）</dd></div>
+            <div><dt>数据</dt><dd>美国联邦游说（federal lobbying）行业数据，聚焦"国土安全"（Homeland Security）市场兴起（9/11后）时期</dd></div>
+            <div><dt>方法</dt><dd>基于Crossref摘要信息的实证研究，考察企业利用既有客户关系（client ties）进入新市场时的"客户关系多元化"（client tie diversification）</dd></div>
+            <div><dt>结论</dt><dd>客户关系多元化与企业绩效呈<b>负相关</b>，机制来自(1)与客户的过度嵌入（over-embeddedness）(2)客户关系所有权分散带来的代理成本；管理启示：借助既有客户关系拓展新市场看似有利，实则可能使企业进入缺乏核心能力的领域，并使原有客户关系复杂化，最终损害绩效，企业应在客户需求与自身组织能力间求平衡</dd></div>
+          </dl>
+          <p class="note-inline">补充信息（WebSearch）：同名论文此前曾获Academy of Management战略（STR）分会Glueck最佳论文奖，并已被SMJ有条件接受，本次Crossref记录应为正式发表版本。该文取代此前报告中的SMJ最新条目"Information Processing, Mutual Understanding, and Organization Design in Healthcare"（John Joseph等，created 8/20）。</p>
+          <a class="src" href="https://doi.org/10.1002/smj.70119">DOI 10.1002/smj.70119 ↗</a>
+        </div>
+      </div>
+    </details>
+
+    <h3 class="discipline">市场营销 <span class="count">· 4本</span></h3>
+    <details class="journal">
+      <summary><span class="j-name">Journal of Consumer Research <span class="abbr">JCR</span></span><span class="j-right"><span class="pill pill-partial">无更新，最新仍为8/19</span><span class="chevron">▶</span></span></summary>
+      <div class="j-body"><p class="note-inline">最新记录仍为"Whom You Pay Matters: How the Payment Path of Shared Expenses Affects Purchase Satisfaction"（Han Young Jung, Joseph P. Redden；created 8/19），无新增。</p></div>
+    </details>
+    <details class="journal">
+      <summary><span class="j-name">Journal of Marketing <span class="abbr">JM</span></span><span class="j-right"><span class="pill pill-partial">无更新，最新仍为8/21</span><span class="chevron">▶</span></span></summary>
+      <div class="j-body"><p class="note-inline">最新记录仍为"Agentic AI and the New Architecture of Marketing Relationships"（Adithya Pattabhiramaiah等；created 8/21），无新增。</p></div>
+    </details>
+    <details class="journal">
+      <summary><span class="j-name">Journal of Marketing Research <span class="abbr">JMR</span></span><span class="j-right"><span class="pill pill-partial">无更新，最新仍为8/21</span><span class="chevron">▶</span></span></summary>
+      <div class="j-body"><p class="note-inline">最新记录仍为"When AI Assists at the Frontline"（Anastasia Nanni等；created 8/21），无新增。</p></div>
+    </details>
+    <details class="journal">
+      <summary><span class="j-name">Marketing Science</span><span class="j-right"><span class="pill pill-partial">无更新，最新仍为8/19</span><span class="chevron">▶</span></span></summary>
+      <div class="j-body"><p class="note-inline">最新记录仍为"An Empirical Investigation of a Digital Platform's Release Strategy for Serialized Content"（Clarice Zhao等；created 8/19），无新增。</p></div>
+    </details>
+
+    <h3 class="discipline">信息系统 <span class="count">· 2本</span></h3>
+    <details class="journal">
+      <summary><span class="j-name">Information Systems Research <span class="abbr">ISR</span></span><span class="j-right"><span class="pill pill-partial">无更新，最新仍为8/10</span><span class="chevron">▶</span></span></summary>
+      <div class="j-body"><p class="note-inline">最新记录仍为"Generative AI, Platform Stances, and Content Creator Behavior"（Hongxian Huang等；created 8/10），无新增。</p></div>
+    </details>
+    <details class="journal">
+      <summary><span class="j-name">MIS Quarterly</span><span class="j-right"><span class="pill pill-partial">无更新，最新仍为7/01（较低置信度）</span><span class="chevron">▶</span></span></summary>
+      <div class="j-body"><p class="note-inline">最新记录仍为7/1批次（"Artificial Intelligence, Alliances, and Innovation"，Bowen Lou, Evan Rawley）。该刊Crossref索引条目量大，"无新增"结论置信度低于其他期刊。</p></div>
+    </details>
+
+    <h3 class="discipline">运营管理 <span class="count">· 4本</span></h3>
+    <details class="journal">
+      <summary><span class="j-name">Journal of Operations Management <span class="abbr">JOM</span></span><span class="j-right"><span class="pill pill-partial">无更新，最新仍为8/19</span><span class="chevron">▶</span></span></summary>
+      <div class="j-body"><p class="note-inline">最新记录仍为"Estimating Hierarchical Demand in Retail Operations"（Blair Flicker等；created 8/19），无新增。</p></div>
+    </details>
+    <details class="journal">
+      <summary><span class="j-name">Management Science</span><span class="j-right"><span class="pill pill-partial">无更新，最新仍为8/21</span><span class="chevron">▶</span></span></summary>
+      <div class="j-body"><p class="note-inline">最新记录仍为"Dissecting Anomalies in Conditional Asset Pricing"（Valentina Raponi, Paolo Zaffaroni；created 8/21），无新增。</p></div>
+    </details>
+    <details class="journal">
+      <summary><span class="j-name">Manufacturing &amp; Service Operations Management <span class="abbr">M&amp;SOM</span></span><span class="j-right"><span class="pill pill-partial">无更新，最新仍为8/19</span><span class="chevron">▶</span></span></summary>
+      <div class="j-body"><p class="note-inline">最新记录仍为"Shared Decision-Making under Bounded Rationality"（Feray Tuncalp等；created 8/19），无新增。</p></div>
+    </details>
+    <details class="journal">
+      <summary><span class="j-name">Operations Research</span><span class="j-right"><span class="pill pill-partial">无更新，最新仍为8/14</span><span class="chevron">▶</span></span></summary>
+      <div class="j-body"><p class="note-inline">最新记录仍为"Separation of Nonergodic Uniform Convergence Rates for Regularized Learning in Games"（Yang Cai等；created 8/14），无新增。</p></div>
+    </details>
+  </section>
+
+  <!-- ================= ECONOMICS TOP 5 ================= -->
+  <section id="econ">
+    <div class="section-head">
+      <h2 class="section-title">经济学五大顶刊</h2>
+      <div class="section-note">AER · QJE · JPE · Econometrica · ReStud</div>
+    </div>
+    <p class="lede">五刊经Crossref ISSN精确过滤核查，本次窗口<b>全部无新增</b>。</p>
+
+    <details class="journal">
+      <summary><span class="j-name">American Economic Review <span class="abbr">AER</span></span><span class="j-right"><span class="pill pill-partial">无更新，最新仍为7/31（Vol.116 Iss.8）</span><span class="chevron">▶</span></span></summary>
+      <div class="j-body"><p class="note-inline">最新批次（created 7/31）含"Energy Transitions in Regulated Markets"（Gowrisankaran, Langer, Reguant）等，无更晚新增。</p></div>
+    </details>
+    <details class="journal">
+      <summary><span class="j-name">Journal of Political Economy <span class="abbr">JPE</span></span><span class="j-right"><span class="pill pill-partial">无更新，最新仍为7/31</span><span class="chevron">▶</span></span></summary>
+      <div class="j-body"><p class="note-inline">最新批次（created 7/31）含"Can Gifted Education Help Higher-Ability Boys from Disadvantaged Backgrounds?"（Card, Chyn, Giuliano）等，无更晚新增。</p></div>
+    </details>
+    <details class="journal">
+      <summary><span class="j-name">Quarterly Journal of Economics <span class="abbr">QJE</span></span><span class="j-right"><span class="pill pill-partial">无更新，最新仍为8/14</span><span class="chevron">▶</span></span></summary>
+      <div class="j-body"><p class="note-inline">最新记录仍为"The Employment Effects of a Guaranteed Income: Experimental Evidence from Two U.S. States"（Eva Vivalt, Elizabeth Rhodes, Alexander Bartik, David Broockman, Patrick Krause, Sarah Miller；created 8/14），无新增。</p></div>
+    </details>
+    <details class="journal">
+      <summary><span class="j-name">Econometrica</span><span class="j-right"><span class="pill pill-partial">无更新，最新仍为7/16</span><span class="chevron">▶</span></span></summary>
+      <div class="j-body"><p class="note-inline">最新批次（created 7/16，Vol.94 Iss.4）含"The Inference–Forecast Gap in Belief Updating"（Tony Q. Fan, Yucheng Liang, Cameron Peng）等，无更晚新增。</p></div>
+    </details>
+    <details class="journal">
+      <summary><span class="j-name">Review of Economic Studies <span class="abbr">ReStud</span></span><span class="j-right"><span class="pill pill-partial">无更新，最新仍为8/21</span><span class="chevron">▶</span></span></summary>
+      <div class="j-body"><p class="note-inline">最新记录仍为"Recruiting Talent"（Simon Board, Moritz Meyer-ter-Vehn, Tomasz Sadzik；created 8/21）。其后为"An optimal test for strategic interaction in network formation games"（Andrin Pelican, Bryan S Graham；created 8/12）、"Capital Unemployment"（Pablo Ottonello；created 8/11），均早于窗口，无新增。</p></div>
+    </details>
+
+    <h3 class="discipline">背景新闻 <span class="count">· NBER / VoxEU / Econbrowser</span></h3>
+    <p class="note-inline" style="margin:0 0 10px;">本次未专门抓取VoxEU/Econbrowser增量内容，如实标注为未覆盖。</p>
+  </section>
+
+  <!-- ================= SCHOLARS ================= -->
+  <section id="scholars">
+    <div class="section-head">
+      <h2 class="section-title">学者动态</h2>
+      <div class="section-note">20位学者 · 本次全部重新检索 · 尽力搜索，非LinkedIn API</div>
+    </div>
+    <p class="lede">本次对20位学者<b>全部重新检索</b>。<b>Tyler Cowen与Daron Acemoglu为窗口内（8/23-24）明确确认的新内容</b>；另确认Paul Krugman 8/22有一篇此前报告未收录的新文章，时间点略早于本次窗口起点但晚于此前报告收录内容，一并纳入。Cochrane、Harvey、Damodaran、Welch、Siegel、Roubini、Zingales、Rajan、Shiller本次复核均为已知内容，无新更新；其余8人因信息源访问限制或日期无法确认，标注为"未能确认"。</p>
+
+    <div class="tier">
+      <div class="tier-label"><span class="dot" style="background:var(--good)"></span>本次确认窗口内新增更新（2人）</div>
+      <div class="scholar">
+        <div class="scholar-head"><span class="scholar-name">Tyler Cowen <span class="scholar-org">George Mason / Mercatus Center</span></span><span class="scholar-date">2026-08-24</span></div>
+        <p>Marginal Revolution博客直接核实，8/24凌晨1:08发布新文《I DJ for Rick Rubin about music and patriotism》，围绕音乐与爱国主义的话题展开（提及John Philip Sousa《Stars and Stripes Forever》等）。此前8/23当日另有《Sunday assorted links》（12:49pm）、Tabarrok执笔的《Democracy and Caeserism》（7:15am）等多篇，因已属此前窗口覆盖范围，本次不重复列出。</p>
+        <a href="https://marginalrevolution.com/marginalrevolution/2026/08/i-dj-for-rick-rubin-about-music-and-patriotism.html">查看原文 ↗</a>
+      </div>
+      <div class="scholar">
+        <div class="scholar-head"><span class="scholar-name">Daron Acemoglu <span class="scholar-org">MIT</span></span><span class="scholar-date">2026-08-23</span></div>
+        <p>《经济学人》8/23发表对Acemoglu的批评性专题报道《The world's most influential economist is oddly unconvincing》，质疑其制度经济学框架及对AI的悲观立场；Acemoglu本人同日在X（@DAcemogluMIT）回应，称该文为"抹黑文章"（hit piece），并表示已要求《经济学人》给予答辩机会，若被拒绝将另行发布回应全文。</p>
+        <a href="https://x.com/DAcemogluMIT/status/2089859506809229425">查看原文 ↗</a>
+      </div>
+    </div>
+
+    <div class="tier">
+      <div class="tier-label"><span class="dot" style="background:var(--warn)"></span>新确认但发布时间略早于窗口起点（1人）</div>
+      <div class="scholar">
+        <div class="scholar-head"><span class="scholar-name">Paul Krugman <span class="scholar-org">CUNY / Substack</span></span><span class="scholar-date">2026-08-22</span></div>
+        <p>Substack存档直接核实，最新文章为《Debt and Tax Cuts》（8/22），晚于此前报告收录的《Defending the Bonds》（8/21），此前未被收录，本次一并确认为新增；未搜到8/23或8/24发布的更新文章。</p>
+        <a href="https://paulkrugman.substack.com/archive">查看原文 ↗</a>
+      </div>
+    </div>
+
+    <div class="tier">
+      <div class="tier-label"><span class="dot" style="background:var(--none)"></span>本次复核，确认窗口内无新更新（9人）</div>
+      <div class="scholar">
+        <p style="margin:0;">
+        <b>John Cochrane</b>（grumpy-economist.com/archive直接核实，最新仍为《Interest Rate Surge?》8/20、《Wealth Tax 2.0》8/19，无更晚新文）·
+        <b>Campbell Harvey</b>（Duke官方媒体追踪页直接核实，最新条目仍为8/19"Inspired Money"节目，无更晚新增）·
+        <b>Robert Shiller</b>（最新确认内容为8/14 Yale Live访谈，谈房市、新MOOC课程与诺奖回顾，早于窗口，无新更新）·
+        <b>Aswath Damodaran</b>（博客直接核实，《AI's Bar Mitzvah Moment》8/20首发+8/21更新，无更晚新文）·
+        <b>Ivo Welch</b>（个人博客ivo-welch.org/blog/最新一篇仍为2026-03-18，确认停更）·
+        <b>Jeremy Siegel</b>（WisdomTree"Weekly Siegel Commentary"存档最新一期仍为8/17，通常周一发布，截至核实时8/24当期尚未上线）·
+        <b>Luigi Zingales</b>（ProMarket作者页直接核实，最新文章仍为8/21《Did Liberals Break Liberal Democracy?》，讨论与Acemoglu的Capitalisn't节目对谈，无更晚新文）·
+        <b>Raghuram Rajan</b>（核实Project Syndicate专栏《How Corporations Can Mitigate an AI Jobocalypse》实际发表于8/14，与此前报道的8/20 BusinessToday"AI token税"转述为同一篇文章，非新内容）·
+        <b>Nouriel Roubini</b>（官方媒体存档nourielroubini.com/media/核实，未见晚于此前已知7/17 Bloomberg TV访谈的条目）
+        </p>
+      </div>
+    </div>
+
+    <div class="tier">
+      <div class="tier-label"><span class="dot" style="background:var(--none)"></span>未能确认（8人）</div>
+      <div class="scholar">
+        <p style="margin:0;">
+        <b>Cliff Asness</b>（Slate Money播客与Bloomberg关于AQR税损收割策略的报道均标注"2026年8月"但无法确认具体日期是否落在窗口内，LinkedIn未搜到有日期标注的近期发帖）·<b>Kenneth French</b>（未搜到窗口内新闻/媒体条目，仅有一则8/27-29其将出席"The Finance Symposium"并任主题演讲人的预告，属未来事件而非窗口内已发生内容）·<b>Andrew Lo</b>（MIT媒体页alo.mit.edu/media/顶部条目"MIT researchers tackle the economic realities of fusion power"仅标注"2026年8月"无具体日期，无法确认是否落在窗口内）·<b>Lubos Pastor</b>（未搜到窗口内新闻/媒体条目，仅有旧的2023年Vanguard董事会消息）·<b>Stefan Nagel</b>（芝加哥大学研究页面上两篇工作论文标注"2026年8月"修订，但无具体日期，且属论文修订而非新的公开发言，无法确认为窗口内新增）·<b>Justin Wolfers</b>（X直接抓取返回402付费墙，搜索未找到8/23-24具体日期的推文或文章）·<b>Emi Nakamura</b>（未搜到窗口内任何公开内容）·<b>Jón Steinsson</b>（未搜到窗口内内容，唯一相关线索为2025年8月的Jackson Hole研讨会参与，已逾一年，非本次窗口）
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= CONFERENCES / CFP / HOT TOPICS ================= -->
+  <section id="conferences">
+    <div class="section-head">
+      <h2 class="section-title">会议 · 征稿 · 研究热点</h2>
+      <div class="section-note">AFA / WFA / EFA / NBER SI / SFS Cavalcade / AEA / FMA</div>
+    </div>
+    <p class="lede">本次逐一核实7个会议状态，<b>均无实质性变化</b>。EFA获奖名单仍未公布，AEA/ASSA注册仍未开放，SFS Cavalcade CFP截止日期仍未公布。NBER CFP列表核实与此前完全一致（13项），<b>"Economic Analysis of Business Taxation"距截止（8/26）仅剩2天</b>，需重点关注。</p>
+
+    <h3 class="discipline">主要会议动态</h3>
+    <div class="sources-grid">
+      <div class="source-card">
+        <h4>AFA 年会 <span class="pill pill-partial">无变化</span></h4>
+        <p>2027-01-03至05 · 华盛顿特区（Marriott Marquis）。afajof.org/news/直接核实，最新仍为7/21 Annette Clark离任消息，无新公告。（检索中出现一则关于"AFA 2027提交结果8/31公布"的搜索片段，疑为缓存/过期页面元数据，未在官网新闻页得到证实，故不作为确认新增）</p>
+      </div>
+      <div class="source-card">
+        <h4>WFA 年会 <span class="pill pill-partial">无变化</span></h4>
+        <p>2027-06-27至30 · 美国加州Indian Wells（Grand Hyatt）。2027届CFP<b>仍未发布</b>，仅有通用投稿流程说明（评审通知预计2027年3月底前）。</p>
+      </div>
+      <div class="source-card">
+        <h4>EFA 年会 <span class="pill pill-partial">已闭幕，获奖名单仍待公布</span></h4>
+        <p>第53届 · 2026-08-19至22 · 比利时根特。直接核实efa2026.efa-finance.org/program/prizes/，各奖项类别及奖金设置（Best Conference Paper Prize €3,000等）仍列出，但获奖人栏目<b>仍为空</b>，与昨日一致，尚未公布。</p>
+      </div>
+      <div class="source-card">
+        <h4>NBER Summer Institute <span class="pill pill-partial">无变化</span></h4>
+        <p>2026届已结束。第50届确认2027-07-12至30在剑桥(MA)举行，本次未重新核实细节。</p>
+      </div>
+      <div class="source-card">
+        <h4>SFS Cavalcade N.A. <span class="pill pill-partial">无变化</span></h4>
+        <p>2027届确认2027-05-18至21 · Notre Dame Mendoza商学院。CFP截止日期<b>仍未公布</b>，搜索仅命中2026届旧CFP页面及通用2027预告页。</p>
+      </div>
+      <div class="source-card">
+        <h4>AEA / ASSA 年会 <span class="pill pill-partial">无变化</span></h4>
+        <p>2027-01-03至05 · 华盛顿特区（Marriott Marquis）。投稿均已截止。注册确认仍预计2026-09-15开放，<b>尚未开放</b>。</p>
+      </div>
+      <div class="source-card">
+        <h4>FMA 年会 <span class="pill pill-partial">无变化</span></h4>
+        <p>2026-10-14至17 · 美国佛罗里达州坦帕（JW Marriott Tampa Water Street）。主题演讲人Andrew Metrick（Yale）。补充确认：论文投稿截止已过（4/1），教学创新奖（Innovation in Teaching Award）已选出3位入围者将于10月大会现场展示。</p>
+      </div>
+    </div>
+
+    <h3 class="discipline">期刊 / NBER Special Issue 征稿</h3>
+    <p class="lede" style="margin-top:0;">直接重新抓取NBER CFP列表页确认<b>与此前完全一致，13项条目无增减</b>。"Economic Analysis of Business Taxation"（截止8/26）<b>距截止仅剩2天</b>，仍在列表中；下一个临近截止日为8/31的"Long-Term Budget Deficits"。</p>
+    <ul class="newslist">
+      <li><span class="h-title">Economic Analysis of Business Taxation</span><span class="h-meta">截止 2026-08-26 · 剩2天</span><a href="https://www.nber.org/calls-papers-and-proposals">↗</a></li>
+      <li><span class="h-title">Long-Term Budget Deficits: Economic Effects and Potential Responses</span><span class="h-meta">截止 2026-08-31</span><a href="https://www.nber.org/calls-papers-and-proposals">↗</a></li>
+      <li><span class="h-title">Economics of Religion</span><span class="h-meta">截止 2026-09-01</span><a href="https://www.nber.org/calls-papers-and-proposals">↗</a></li>
+      <li><span class="h-title">Economics of Transportation in the 21st Century</span><span class="h-meta">截止 2026-09-03</span><a href="https://www.nber.org/calls-papers-and-proposals">↗</a></li>
+      <li><span class="h-title">Emerging Markets: Navigating a Fragmented Global Economy</span><span class="h-meta">截止 2026-09-08</span><a href="https://www.nber.org/calls-papers-and-proposals">↗</a></li>
+      <li><span class="h-title">Production Function Estimation and Its Applications to Industries</span><span class="h-meta">截止 2026-09-14</span><a href="https://www.nber.org/calls-papers-and-proposals">↗</a></li>
+      <li><span class="h-title">The Economics of Firearm Markets, Crime, and Gun Violence</span><span class="h-meta">截止 2026-10-28</span><a href="https://www.nber.org/calls-papers-and-proposals">↗</a></li>
+      <li><span class="h-title">50th Annual International Seminar on Macroeconomics</span><span class="h-meta">截止 2026-11-01</span><a href="https://www.nber.org/calls-papers-and-proposals">↗</a></li>
+      <li><span class="h-title">Assessing the US Medical Innovation System</span><span class="h-meta">截止 2026-11-02</span><a href="https://www.nber.org/calls-papers-and-proposals">↗</a></li>
+      <li><span class="h-title">Demographic Forces and US Labor Market Dynamics</span><span class="h-meta">截止 2026-12-01</span><a href="https://www.nber.org/calls-papers-and-proposals">↗</a></li>
+      <li><span class="h-title">Tariffs and Economic Performance</span><span class="h-meta">截止 2026-12-16</span><a href="https://www.nber.org/calls-papers-and-proposals">↗</a></li>
+      <li><span class="h-title">Measuring and Modeling Market Power in the Labor Market</span><span class="h-meta">截止 2027-01-13</span><a href="https://www.nber.org/calls-papers-and-proposals">↗</a></li>
+      <li><span class="h-title">Spatial Spillovers from Transport Infrastructure Investments</span><span class="h-meta">截止 2027-01-14</span><a href="https://www.nber.org/calls-papers-and-proposals">↗</a></li>
+    </ul>
+
+    <h3 class="discipline">研究热度信号</h3>
+    <p class="note-inline" style="margin-top:0;">本次窗口（周一，8/24）UTD24+经济学5大共29刊仅SMJ 1篇新增，出版节奏整体仍偏静默，尚未完全恢复至平日水平；arXiv q-fin周一新批次已上线（8篇），RePEc NEP-FMK仍维持8/17一期不变。综合来看，学术出版的"周一恢复"存在一定滞后，预计周二（8/25）起各渠道更新节奏将进一步恢复。</p>
+  </section>
+
+  <!-- ================= OTHER SOURCES ================= -->
+  <section id="sources">
+    <div class="section-head">
+      <h2 class="section-title">其他可用信息源</h2>
+      <div class="section-note">真实近期条目 · 点击展开</div>
+    </div>
+    <p class="lede">本次窗口内6个信息源（除Google Scholar/Semantic Scholar为静态说明外）中，<b>arXiv q-fin出现周一新批次（8篇）</b>；RePEc NEP-FMK、Wharton Knowledge、Stanford GSB Insights、Chicago Booth Review均维持基线无变化；HBS Working Knowledge发现一篇日期存在疑点的条目（详见下）；SSRN与CFA Institute因站点技术限制仍<b>未能确认</b>而非"确认无更新"。</p>
+
+    <details class="journal">
+      <summary><span class="j-name">SSRN Financial Economics Network</span><span class="j-right"><span class="pill pill-none">403受限，未能确认</span><span class="chevron">▶</span></span></summary>
+      <div class="j-body">
+        <p class="note-inline">papers.ssrn.com本次仍无法直接抓取；WebSearch搜到的论文（如"A Market-Based Cost of Capital"，Niels Joachim Gormsen, Kilian Huber, Theis Ingerslev Jensen，约7/28发布；"Loan Prepayment, Securitization, and the Expansion of Productive Credit"，Elizabeth Bickmore，8/6最近修订、原发布于2025年8月）均无法与页面本身交叉验证是否落在本次窗口内，日期可信度不足，仍为<b>未能确认</b>。</p>
+      </div>
+    </details>
+
+    <details class="journal">
+      <summary><span class="j-name">arXiv q-fin</span><span class="j-right"><span class="pill pill-found">新批次，8/24（8篇）</span><span class="chevron">▶</span></span></summary>
+      <div class="j-body">
+        <p class="note-inline">直接抓取recent listing确认：周一（8/24）新批次已上线，共8篇（此前最新为周五8/21，9篇）。其中值得关注（仅取前5篇，其余3篇未逐一核实）：<b>"Recommendation Quality and the Concentration of Consumption: Experimental Evidence from Netflix"</b>（Guy Aridor, Winston Chou, Nathan Kallus等）研究推荐算法对内容消费集中度的因果影响，基于Netflix实验数据；<b>"Rethinking Synthetic Scenario Realism: Compatibility, Not Fidelity, Drives Hedging Performance"</b>（Ryuji Hashimoto, Masanori Hirano, Ryota Ozaki, Kentaro Imajo）探讨合成市场情景设计用于对冲策略时，"兼容性"比"逼真度"更重要；<b>"Priority Transparency, Admission Chances, and Information Acquisition in School Choice"</b>（Georgy Artemov, Siqi Pan）研究学校选择机制中的信息获取与录取概率问题（市场设计/信息经济学）；<b>"Calibrating Inelastic Markets to Options: The Lean Marketron and the Generalized Langevin Equation"</b>（Andrey Itkin）为期权定价/市场微观结构提出新的非弹性市场校准理论；<b>"If It Walks Like an Arbitrage: Protocol-Agnostic Detection with Decidable Structural Equivalence"</b>（Adam Khayam, Hamid Kolli等）研究DeFi/加密货币跨协议套利的可判定检测方法。</p>
+      </div>
+    </details>
+
+    <details class="journal">
+      <summary><span class="j-name">RePEc / IDEAS <span class="abbr">NEP-FMK</span></span><span class="j-right"><span class="pill pill-partial">无变化，仍为8/17</span><span class="chevron">▶</span></span></summary>
+      <div class="j-body">
+        <p class="note-inline">直接核实nep.repec.org/nep-fmk/，确认最新一期仍为<b>NEP-FMK-2026-08-17</b>，窗口内未出新一期。</p>
+      </div>
+    </details>
+
+    <details class="journal">
+      <summary><span class="j-name">商学院知识站点</span><span class="j-right"><span class="pill pill-partial">3家无变化，1家存疑</span><span class="chevron">▶</span></span></summary>
+      <div class="j-body">
+        <p class="note-inline">Wharton Knowledge最新仍为<b>8/18</b>《Want More Women Candidates? Ask Employees for More Referrals》，无变化；Stanford GSB Insights最新仍为<b>8/17</b>《Shrinking the Fed's Balance Sheet Is Easier Said Than Done》（Darrell Duffie），无变化；Chicago Booth Review最新仍为《Have We Been Overtraining Accountants?》（Martin León Barreto，标注"2026年7月"），无变化。<b>HBS Working Knowledge</b>本次核实其网站已重定向至library.hbs.edu/working-knowledge，列表顶部出现《Can Airports Run Better? Private Equity Tackles Travel》（研究者Sabrina T. Howell，标注8/19），但该日期早于此前报告已收录的8/20文章《How Credit Card Rewards Became a $9.2 Billion Wealth Transfer》（Mark L. Egan，仍在列表中），推测为站点改版/回填导致的排序变化，而非真正的窗口内新文章，暂不计入"确认新增"，仅作记录供下期跟进。</p>
+      </div>
+    </details>
+
+    <details class="journal">
+      <summary><span class="j-name">CFA Institute <span class="abbr">Enterprising Investor</span></span><span class="j-right"><span class="pill pill-none">站点结构限制，未能确认</span><span class="chevron">▶</span></span></summary>
+      <div class="j-body"><p class="note-inline">blogs.cfainstitute.org/investor/本次确认已重定向至rpc.cfainstitute.org/blogs/enterprising-investor，但直接抓取仍仅返回导航壳层。WebSearch搜到的《Where AI Ends and Investment Judgment Begins》（约8/15）等文章均早于窗口，仍为<b>未能确认</b>窗口内是否有新文章。</p></div>
+    </details>
+
+    <div class="sources-grid" style="margin-top:10px;">
+      <div class="source-card"><h4>Google Scholar / Semantic Scholar</h4><p>检索工具而非信息流：可对特定学者或关键词设置提醒，用于持续追踪其最新产出，本报告未强行拉取"近期内容"。</p></div>
+    </div>
+  </section>
+
+  <!-- ================= METHODOLOGY ================= -->
+  <section id="methodology">
+    <div class="section-head">
+      <h2 class="section-title">数据说明与局限</h2>
+    </div>
+    <div class="callout">
+      <h4>如何生成本报告</h4>
+      <ul>
+        <li>逐一检索UTD24 24本期刊+经济学五大顶刊共29本的Crossref官方元数据接口（ISSN精确过滤，<code>filter=from-created-date:2026-08-22</code>），并对每刊额外交叉核验不设日期过滤的最新记录。本次窗口内<b>29本期刊中仅SMJ有1篇新增</b>（Heejung Byun，Penn State Smeal，created 8/23）；JAE、ASQ命中的记录经核对均为此前报告已收录的旧文章，不重复列出。今天是周一（8/24），是本周首个工作日，理论上出版节奏应开始恢复，但实际观测到的新增数量仍偏低，可能反映Crossref索引存在滞后，或出版商实际的周一发布高峰尚未到来。</li>
+        <li>学者动态板块本次对20位学者<b>全部重新检索</b>。Tyler Cowen（8/24博客）与Daron Acemoglu（8/23在X回应《经济学人》批评报道）为窗口内明确确认的新内容；Paul Krugman发现一篇8/22的新文章（此前报告未收录），时间点略早于本次严格窗口起点但属新确认信息，一并纳入统计。Cochrane、Harvey、Damodaran、Welch、Siegel、Zingales、Rajan、Roubini、Shiller本次逐一核对官方博客/媒体存档，确认为窗口内无新更新。其余8人（Asness、French、Lo、Pastor、Nagel、Wolfers、Nakamura、Steinsson）因X/LinkedIn访问受限（多返回401/402权限墙）或搜索结果日期标注不精确（仅标"2026年8月"无具体日），无法确认是否落在窗口内，标注为"未能确认"。</li>
+        <li>会议·征稿板块本次逐一核实7个会议状态，均无实质性变化：EFA第53届获奖名单仍未公布；AEA/ASSA注册仍未开放（预计9/15）；SFS Cavalcade 2027届CFP截止日期仍未公布。NBER CFP列表核实与此前完全一致（13项条目），<b>"Economic Analysis of Business Taxation"距截止仅剩2天（8/26）</b>，为本期最紧迫事项。</li>
+        <li>arXiv q-fin本次确认周一（8/24）新批次已上线（8篇），已列出前5篇代表性论文；RePEc/IDEAS NEP-FMK仍无新一期（维持8/17）；商学院知识站点中Wharton、Stanford GSB、Chicago Booth三家维持基线无变化，HBS Working Knowledge发现一篇日期早于现有基线的条目（疑为站点改版/回填所致），未计入"确认新增"。</li>
+        <li>CFA Institute Enterprising Investor站点结构仍限制直接核实文章列表；SSRN因papers.ssrn.com返回403，本次仍未能确认。受限于时间分配，本次未专门抓取VoxEU/Econbrowser增量内容，如实标注为"未覆盖"。</li>
+      </ul>
+    </div>
+  </section>
+
+  <footer>
+    生成时间 2026-08-24 · 覆盖窗口 2026-08-22（不含）至 2026-08-24 · 数据来源见各条目链接 · 本报告为内容生成产物，推送由独立的定时任务完成
+  </footer>
+
+</div>
+</body>
+</html>
