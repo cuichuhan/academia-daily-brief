@@ -1,0 +1,787 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>学术日报 · 2026-10-17</title>
+<style>
+  :root{
+    --bg:#F4F2EC;
+    --surface:#FFFFFF;
+    --surface-2:#ECE9E1;
+    --border:#DEDACF;
+    --ink:#1E2126;
+    --ink-muted:#5B5F66;
+    --ink-faint:#8A8D93;
+    --accent:#35507A;
+    --accent-ink:#FFFFFF;
+    --good:#2E7D46;
+    --good-bg:#E4F1E7;
+    --warn:#A6720E;
+    --warn-bg:#F5ECD8;
+    --none:#75787E;
+    --none-bg:#EAE8E2;
+    --shadow:0 1px 2px rgba(30,33,38,.06),0 4px 14px rgba(30,33,38,.05);
+    --serif:"Iowan Old Style","Palatino Linotype",Palatino,"Hoefler Text",Georgia,serif;
+    --sans:Optima,Candara,"Noto Sans SC","Segoe UI",system-ui,-apple-system,sans-serif;
+    --mono:ui-monospace,"SF Mono","Cascadia Code",Consolas,"Liberation Mono",monospace;
+  }
+  @media (prefers-color-scheme: dark){
+    :root{
+      --bg:#14171B;
+      --surface:#1C2027;
+      --surface-2:#20242C;
+      --border:#2E323B;
+      --ink:#E9E8E3;
+      --ink-muted:#A4A9B1;
+      --ink-faint:#767B84;
+      --accent:#8CA3CC;
+      --accent-ink:#0F141C;
+      --good:#7FD09B;
+      --good-bg:#1C2E22;
+      --warn:#E7BB5C;
+      --warn-bg:#332A16;
+      --none:#8A8F97;
+      --none-bg:#22252B;
+      --shadow:0 1px 2px rgba(0,0,0,.4),0 8px 20px rgba(0,0,0,.35);
+    }
+  }
+  :root[data-theme="dark"]{
+    --bg:#14171B;--surface:#1C2027;--surface-2:#20242C;--border:#2E323B;
+    --ink:#E9E8E3;--ink-muted:#A4A9B1;--ink-faint:#767B84;
+    --accent:#8CA3CC;--accent-ink:#0F141C;
+    --good:#7FD09B;--good-bg:#1C2E22;--warn:#E7BB5C;--warn-bg:#332A16;--none:#8A8F97;--none-bg:#22252B;
+    --shadow:0 1px 2px rgba(0,0,0,.4),0 8px 20px rgba(0,0,0,.35);
+  }
+  :root[data-theme="light"]{
+    --bg:#F4F2EC;--surface:#FFFFFF;--surface-2:#ECE9E1;--border:#DEDACF;
+    --ink:#1E2126;--ink-muted:#5B5F66;--ink-faint:#8A8D93;
+    --accent:#35507A;--accent-ink:#FFFFFF;
+    --good:#2E7D46;--good-bg:#E4F1E7;--warn:#A6720E;--warn-bg:#F5ECD8;--none:#75787E;--none-bg:#EAE8E2;
+    --shadow:0 1px 2px rgba(30,33,38,.06),0 4px 14px rgba(30,33,38,.05);
+  }
+
+  *{box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{
+    margin:0;
+    background:var(--bg);
+    color:var(--ink);
+    font-family:var(--sans);
+    line-height:1.55;
+    -webkit-font-smoothing:antialiased;
+  }
+  @media (prefers-reduced-motion: reduce){ html{scroll-behavior:auto;} }
+
+  .wrap{max-width:920px;margin:0 auto;padding:0 20px 80px;}
+
+  header.masthead{
+    border-bottom:3px double var(--border);
+    padding:36px 0 20px;
+    margin-bottom:8px;
+  }
+  .kicker{
+    font-family:var(--mono);
+    font-size:12px;
+    letter-spacing:.12em;
+    text-transform:uppercase;
+    color:var(--accent);
+  }
+  h1.title{
+    font-family:var(--serif);
+    font-size:44px;
+    font-weight:600;
+    margin:6px 0 4px;
+    text-wrap:balance;
+    letter-spacing:-.01em;
+  }
+  .subtitle{
+    color:var(--ink-muted);
+    font-size:15px;
+    margin:0;
+  }
+  .subtitle .divider{margin:0 8px;color:var(--ink-faint);}
+
+  .notice{
+    background:var(--warn-bg);
+    border:1px solid var(--warn);
+    border-radius:10px;
+    padding:14px 18px;
+    margin:18px 0 0;
+    font-size:14px;
+    color:var(--ink);
+  }
+  .notice b{color:var(--warn);}
+
+  .notice.highlight{
+    background:var(--good-bg);
+    border:1px solid var(--good);
+    margin-top:12px;
+  }
+  .notice.highlight b{color:var(--good);}
+
+  .stats{
+    display:grid;
+    grid-template-columns:repeat(4,1fr);
+    gap:1px;
+    background:var(--border);
+    border:1px solid var(--border);
+    border-radius:10px;
+    overflow:hidden;
+    margin:28px 0 36px;
+  }
+  .stat{
+    background:var(--surface);
+    padding:16px 14px;
+  }
+  .stat .n{
+    font-family:var(--mono);
+    font-variant-numeric:tabular-nums;
+    font-size:26px;
+    font-weight:600;
+    color:var(--ink);
+  }
+  .stat .n small{font-size:14px;color:var(--ink-faint);font-weight:500;}
+  .stat .label{font-size:12.5px;color:var(--ink-muted);margin-top:2px;}
+  @media (max-width:640px){ .stats{grid-template-columns:repeat(2,1fr);} }
+
+  nav.toc{
+    display:flex;
+    flex-wrap:wrap;
+    gap:6px 10px;
+    padding:10px 14px;
+    background:var(--surface-2);
+    border:1px solid var(--border);
+    border-radius:10px;
+    margin-bottom:44px;
+    font-size:13.5px;
+  }
+  nav.toc a{color:var(--ink-muted);text-decoration:none;padding:2px 4px;border-bottom:1px solid transparent;}
+  nav.toc a:hover{color:var(--accent);border-color:var(--accent);}
+  nav.toc .sep{color:var(--border);}
+
+  section{margin-bottom:56px;scroll-margin-top:16px;}
+  .section-head{
+    display:flex;
+    align-items:baseline;
+    justify-content:space-between;
+    gap:16px;
+    border-bottom:1px solid var(--border);
+    padding-bottom:10px;
+    margin-bottom:18px;
+  }
+  h2.section-title{
+    font-family:var(--serif);
+    font-size:26px;
+    font-weight:600;
+    margin:0;
+  }
+  .section-note{font-size:13px;color:var(--ink-faint);text-align:right;max-width:260px;}
+  h3.discipline{
+    font-family:var(--sans);
+    font-size:13px;
+    font-weight:700;
+    letter-spacing:.08em;
+    text-transform:uppercase;
+    color:var(--accent);
+    margin:26px 0 10px;
+  }
+  h3.discipline .count{color:var(--ink-faint);font-weight:500;text-transform:none;letter-spacing:0;}
+
+  p.lede{color:var(--ink-muted);font-size:15px;max-width:66ch;}
+
+  details.journal{
+    background:var(--surface);
+    border:1px solid var(--border);
+    border-radius:10px;
+    margin-bottom:10px;
+    box-shadow:var(--shadow);
+  }
+  details.journal + details.journal{margin-top:10px;}
+  details.journal summary{
+    list-style:none;
+    cursor:pointer;
+    padding:13px 16px;
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    gap:12px;
+    font-size:15px;
+  }
+  details.journal summary::-webkit-details-marker{display:none;}
+  summary .j-name{font-weight:600;}
+  summary .j-name .abbr{color:var(--ink-faint);font-weight:500;font-size:13px;margin-left:4px;}
+  summary .j-right{display:flex;align-items:center;gap:10px;flex-shrink:0;}
+  summary .chevron{
+    color:var(--ink-faint);
+    transition:transform .15s ease;
+    font-size:11px;
+  }
+  details[open] summary .chevron{transform:rotate(90deg);}
+
+  .pill{
+    font-family:var(--mono);
+    font-size:11px;
+    letter-spacing:.02em;
+    padding:3px 9px;
+    border-radius:999px;
+    white-space:nowrap;
+  }
+  .pill-found{background:var(--good-bg);color:var(--good);}
+  .pill-partial{background:var(--warn-bg);color:var(--warn);}
+  .pill-none{background:var(--none-bg);color:var(--none);}
+
+  .j-body{padding:0 16px 16px;border-top:1px solid var(--border);}
+  .paper{padding:16px 0;}
+  .paper + .paper{border-top:1px dashed var(--border);}
+  .paper h4{
+    font-family:var(--serif);
+    font-size:17px;
+    font-weight:600;
+    margin:0 0 6px;
+    text-wrap:balance;
+  }
+  .byline{font-size:13px;color:var(--ink-muted);margin:0 0 10px;}
+  .byline .date{font-family:var(--mono);color:var(--ink-faint);}
+  dl.facts{margin:0 0 10px;font-size:13.5px;}
+  dl.facts > div{display:grid;grid-template-columns:64px 1fr;gap:2px 12px;}
+  dl.facts > div + div{margin-top:5px;}
+  dl.facts dt{color:var(--ink-faint);font-size:11.5px;text-transform:uppercase;letter-spacing:.06em;padding-top:1px;}
+  dl.facts dd{margin:0;color:var(--ink);}
+  a.src{
+    display:inline-flex;
+    align-items:center;
+    gap:4px;
+    font-size:12.5px;
+    font-family:var(--mono);
+    color:var(--accent);
+    text-decoration:none;
+    border-bottom:1px solid transparent;
+  }
+  a.src:hover{border-color:var(--accent);}
+  .note-inline{font-size:12.5px;color:var(--ink-faint);font-style:italic;margin:4px 0 0;}
+
+  ul.newslist{list-style:none;margin:0;padding:0;}
+  ul.newslist li{
+    padding:11px 0;
+    border-top:1px solid var(--border);
+    font-size:14px;
+  }
+  ul.newslist li:first-child{border-top:none;}
+  ul.newslist .h-title{font-weight:600;}
+  ul.newslist .h-meta{color:var(--ink-faint);font-size:12.5px;margin-left:6px;font-family:var(--mono);}
+  ul.newslist a{color:var(--accent);text-decoration:none;font-size:12.5px;font-family:var(--mono);margin-left:8px;}
+
+  .tier{margin-bottom:26px;}
+  .tier-label{
+    display:flex;align-items:center;gap:8px;
+    font-size:13px;font-weight:700;letter-spacing:.03em;color:var(--ink-muted);
+    margin-bottom:10px;
+  }
+  .tier-label .dot{width:8px;height:8px;border-radius:50%;flex-shrink:0;}
+  .scholar{
+    background:var(--surface);
+    border:1px solid var(--border);
+    border-radius:10px;
+    padding:14px 16px;
+    margin-bottom:8px;
+  }
+  .scholar-head{display:flex;justify-content:space-between;gap:10px;flex-wrap:wrap;}
+  .scholar-name{font-weight:700;font-size:14.5px;}
+  .scholar-org{color:var(--ink-faint);font-size:12.5px;font-weight:400;}
+  .scholar-date{font-family:var(--mono);font-size:11.5px;color:var(--ink-faint);white-space:nowrap;}
+  .scholar p{font-size:13.5px;margin:6px 0 4px;color:var(--ink);}
+  .scholar a{font-family:var(--mono);font-size:12px;color:var(--accent);text-decoration:none;}
+
+  .sources-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:10px;}
+  @media (max-width:640px){.sources-grid{grid-template-columns:1fr;}}
+  .source-card{
+    background:var(--surface);border:1px solid var(--border);border-radius:10px;
+    padding:14px 16px;
+  }
+  .source-card h4{margin:0 0 4px;font-size:14.5px;font-family:var(--serif);}
+  .source-card p{margin:0;font-size:13px;color:var(--ink-muted);}
+
+  .callout{
+    background:var(--surface-2);
+    border:1px solid var(--border);
+    border-left:3px solid var(--accent);
+    border-radius:6px;
+    padding:16px 18px;
+    font-size:13.5px;
+    color:var(--ink-muted);
+  }
+  .callout h4{margin:0 0 8px;color:var(--ink);font-size:14px;}
+  .callout ul{margin:0;padding-left:18px;}
+  .callout li{margin-bottom:6px;}
+
+  footer{
+    border-top:1px solid var(--border);
+    padding-top:18px;
+    font-size:12px;
+    color:var(--ink-faint);
+    font-family:var(--mono);
+  }
+</style>
+</head>
+<body>
+
+<div class="wrap">
+
+  <header class="masthead">
+    <div class="kicker">学术情报 · Daily Research Brief</div>
+    <h1 class="title">学术日报 · 2026-10-17</h1>
+    <p class="subtitle">覆盖窗口 2026年10月16日 至 10月17日<span class="divider">·</span>金融F4 &amp; UTD24顶刊 &amp; 经济学五大顶刊 &amp; 学者动态</p>
+    <div class="notice highlight"><b>头条：</b>UTD24其余刊中<b>运营管理表现突出</b>：Management Science与Manufacturing &amp; Service Operations Management各新增2篇，Strategic Management Journal结束半月沉寂、新上线1篇基于Apple五代iOS发布数据的平台生态理论实证论文；Journal of International Business Studies与Journal of Accounting and Economics各新增1篇。金融F4与经济学五大顶刊本窗口均<b>无新增</b>。学者动态方面，<b>Tyler Cowen窗口内新发3篇</b>（含一则16个AI代理用真实比特币互相博弈的"涌现剥削行为"实验观察）、<b>Paul Krugman、Justin Wolfers均新发表关于"通胀体感与统计数字为何脱节"的评论</b>，三人恰好从不同角度切入同一话题。FMA年会已进行至最后一天（周六，10/17）。</div>
+    <div class="notice"><b>今日概况：</b>对29本监测期刊逐一通过Crossref核查最新created记录并与此前所有报告已收录DOI排重。<b>本窗口5刊共新增7篇</b>：Journal of Accounting and Economics（1篇）、Journal of International Business Studies（1篇）、Strategic Management Journal（1篇）、Management Science（2篇）、Manufacturing &amp; Service Operations Management（2篇）；其余24刊均无新增，含金融F4全部4刊与经济学五大顶刊全部5刊。学者动态方面，直接抓取高频学者存档页核实：<b>Tyler Cowen（3篇）、Paul Krugman（1篇）、Justin Wolfers（1篇）</b>确认窗口内有新公开动态；John Cochrane、Jeremy Siegel、Aswath Damodaran等经直接核实窗口内均无更晚新帖。其他信息源中，<b>Wharton Knowledge新增2条</b>（10/14、10/16播客）；arXiv q-fin仍为10/16批次（17篇，未见10/17新批次上线）；RePEc NEP-FMK、HBS Working Knowledge、Chicago Booth Review、Stanford GSB Insights均无更晚新增；CFA Institute Enterprising Investor核实最新仍为10/12《Where are all the Portfolio Managers' Large Language Models?》；SSRN仍因页面结构/访问限制未能确认窗口内具体新条目；NBER CFP/CFPro列表核查后与此前报告完全一致（17项，最近截止仍为2026-10-28）。</div>
+  </header>
+
+  <div class="stats">
+    <div class="stat"><div class="n">7</div><div class="label">窗口内新增论文数（5刊）</div></div>
+    <div class="stat"><div class="n">5<small>/29</small></div><div class="label">窗口内有新论文的期刊</div></div>
+    <div class="stat"><div class="n">3<small>/20</small></div><div class="label">学者动态确认新更新</div></div>
+    <div class="stat"><div class="n">4<small>/4</small></div><div class="label">FMA年会进行至最后一天（Tampa）</div></div>
+  </div>
+
+  <nav class="toc">
+    <a href="#f4">金融F4</a><span class="sep">/</span>
+    <a href="#other-utd24">其他UTD24顶刊</a><span class="sep">/</span>
+    <a href="#econ">经济学五大顶刊</a><span class="sep">/</span>
+    <a href="#scholars">学者动态</a><span class="sep">/</span>
+    <a href="#conferences">会议·征稿·热点</a><span class="sep">/</span>
+    <a href="#sources">其他信息源</a><span class="sep">/</span>
+    <a href="#methodology">数据说明与局限</a>
+  </nav>
+
+  <!-- ================= FINANCE F4 ================= -->
+  <section id="f4">
+    <div class="section-head">
+      <h2 class="section-title">金融学 F4</h2>
+      <div class="section-note">Journal of Finance · JFE · RFS · JFQA</div>
+    </div>
+    <p class="lede">Crossref按期刊ISSN逐一核实最新created记录（每刊抓取6条），并与此前所有报告已收录DOI排重。<b>本窗口JF、JFE、RFS、JFQA均无新增</b>。</p>
+
+    <details class="journal">
+      <summary>
+        <span class="j-name">Journal of Finance <span class="abbr">JF</span></span>
+        <span class="j-right"><span class="pill pill-partial">无新增</span><span class="chevron">▶</span></span>
+      </summary>
+      <div class="j-body"><p class="note-inline">最新记录仍为created 2026-10-14T08:26:08Z的《Externalities of Responsible Investments》（已在此前报告中收录），本窗口无更晚新增。</p></div>
+    </details>
+
+    <details class="journal">
+      <summary>
+        <span class="j-name">Journal of Financial Economics <span class="abbr">JFE</span></span>
+        <span class="j-right"><span class="pill pill-partial">无新增</span><span class="chevron">▶</span></span>
+      </summary>
+      <div class="j-body"><p class="note-inline">最新记录仍为created 2026-10-14T10:26:26Z的《Disagreement of disagreement》（已在此前报告中收录），本窗口无更晚新增。</p></div>
+    </details>
+
+    <details class="journal">
+      <summary>
+        <span class="j-name">Review of Financial Studies <span class="abbr">RFS</span></span>
+        <span class="j-right"><span class="pill pill-partial">无新增</span><span class="chevron">▶</span></span>
+      </summary>
+      <div class="j-body"><p class="note-inline">最新记录仍为created 2026-10-06T11:39:33Z的《Central Bank Economic Transparency and Managerial Learning》与《Directing the Labor Market: Shared Directors and Employee Flows》，本窗口无更晚新增。</p></div>
+    </details>
+
+    <details class="journal">
+      <summary>
+        <span class="j-name">Journal of Financial and Quantitative Analysis <span class="abbr">JFQA</span></span>
+        <span class="j-right"><span class="pill pill-partial">无新增</span><span class="chevron">▶</span></span>
+      </summary>
+      <div class="j-body"><p class="note-inline">最新记录仍为created 2026-09-30的《How Does Domestic Competition Affect Firms' Foreign Market Expansion?》（Tiago Loncan、Philip Valta；DOI 10.1017/s0022109026103354），本窗口无更晚新增。</p></div>
+    </details>
+  </section>
+
+  <!-- ================= OTHER UTD24 ================= -->
+  <section id="other-utd24">
+    <div class="section-head">
+      <h2 class="section-title">其他 UTD24 顶刊（20本）</h2>
+      <div class="section-note">会计 · 管理 · 市场营销 · 信息系统 · 运营管理</div>
+    </div>
+    <p class="lede">逐一用Crossref按ISSN核查各刊最新created记录，并与此前所有报告已收录DOI排重。本窗口<b>Journal of Accounting and Economics、Journal of International Business Studies、Strategic Management Journal、Management Science（2篇）、Manufacturing &amp; Service Operations Management（2篇）</b>共5刊7篇新增，其余15刊均无新增。</p>
+
+    <h3 class="discipline">会计 <span class="count">· 3本</span></h3>
+    <details class="journal" open>
+      <summary><span class="j-name">Journal of Accounting and Economics <span class="abbr">JAE</span></span><span class="j-right"><span class="pill pill-found">新增1篇</span><span class="chevron">▶</span></span></summary>
+      <div class="j-body">
+        <div class="paper">
+          <h4>The Good Idea Dilemma</h4>
+          <p class="byline"><span class="date">created 2026-10-16T16:05:11Z</span> · Eti Einhorn（Tel Aviv University, Coller School of Management）· Nisan Langberg（Tel Aviv University, Coller School of Management；此前亦长期任教于University of Houston, Bauer College of Business）· Tsahi Versano（Tel Aviv University, Coller School of Management）<span class="note-inline">（作者机构据公开学术主页/LinkedIn核实，非论文本身标注）</span></p>
+          <dl class="facts">
+            <div><dt>说明</dt><dd>Crossref未提供该文摘要，论文出版平台亦未公开摘要全文。WebSearch仅检索到该文此前以同名在学术会议（如EIASM第15届Workshop on Accounting and Economics，2024年）上展示过，三位作者过往研究方向集中于自愿信息披露、创新与信息经济学理论；但未能检索到可靠的具体方法、数据与结论细节，如实标注<b>未能确认</b>，不做推测性概括。</dd></div>
+          </dl>
+          <a class="src" href="https://doi.org/10.1016/j.jacceco.2026.101954">DOI 10.1016/j.jacceco.2026.101954 ↗</a>
+        </div>
+      </div>
+    </details>
+    <details class="journal">
+      <summary><span class="j-name">The Accounting Review <span class="abbr">TAR</span></span><span class="j-right"><span class="pill pill-partial">无新增</span><span class="chevron">▶</span></span></summary>
+      <div class="j-body"><p class="note-inline">最新记录仍为created 2026-10-15T15:32:46Z的《Beyond Greenwashing: Environmental Commitments and Gas Flaring in the African Oil Sector》（已在此前报告中收录），本窗口无更晚新增。</p></div>
+    </details>
+    <details class="journal">
+      <summary><span class="j-name">Journal of Accounting Research <span class="abbr">JAR</span></span><span class="j-right"><span class="pill pill-partial">无新增</span><span class="chevron">▶</span></span></summary>
+      <div class="j-body"><p class="note-inline">最新记录仍为created 2026-10-13T08:58:16Z的《Unintended Regulatory Spillovers...》，本窗口无更晚新增。</p></div>
+    </details>
+
+    <h3 class="discipline">管理 <span class="count">· 7本</span></h3>
+    <details class="journal">
+      <summary><span class="j-name">Academy of Management Journal <span class="abbr">AMJ</span></span><span class="j-right"><span class="pill pill-partial">无新增</span><span class="chevron">▶</span></span></summary>
+      <div class="j-body"><p class="note-inline">最新记录仍为created 2026-10-14T20:50:51Z的编辑性文章《Care-Full Reviewing at AMJ》，本窗口无更晚新增。</p></div>
+    </details>
+    <details class="journal">
+      <summary><span class="j-name">Academy of Management Review <span class="abbr">AMR</span></span><span class="j-right"><span class="pill pill-partial">无新增</span><span class="chevron">▶</span></span></summary>
+      <div class="j-body"><p class="note-inline">最新记录仍为created 2026-10-14T20:04:51Z的《Event System Theory: A Decade of Progress and a Future of Potential》，本窗口无更晚新增。</p></div>
+    </details>
+    <details class="journal">
+      <summary><span class="j-name">Administrative Science Quarterly <span class="abbr">ASQ</span></span><span class="j-right"><span class="pill pill-partial">无新增</span><span class="chevron">▶</span></span></summary>
+      <div class="j-body"><p class="note-inline">最新实质性研究论文仍为10/1的《In Pursuit of Ideal Data...》，本窗口无新研究论文。</p></div>
+    </details>
+    <details class="journal" open>
+      <summary><span class="j-name">Journal of International Business Studies <span class="abbr">JIBS</span></span><span class="j-right"><span class="pill pill-found">新增1篇</span><span class="chevron">▶</span></span></summary>
+      <div class="j-body">
+        <div class="paper">
+          <h4>Simulating competitive collocation strategies with deep reinforcement learning</h4>
+          <p class="byline"><span class="date">created 2026-10-16T16:02:21Z</span> · Roman Gwosdilin（WU Vienna University of Economics and Business, Institute for International Business）· Thomas Lindner（WU Vienna University of Economics and Business, Institute for International Business）· Michael Wolfesberger（WU Vienna University of Economics and Business, Institute for International Business）<span class="note-inline">（机构据作者学术主页核实，非论文本身标注）</span></p>
+          <dl class="facts">
+            <div><dt>方法</dt><dd>构建基于深度强化学习的仿真模型，研究两家跨国化企业在产品市场上的"竞争性共址"（competitive collocation）策略；探讨决定市场寻求型国际化中最优共址程度的因素。</dd></div>
+            <div><dt>结论</dt><dd>仿真显示两企业间高度共址在多数情形下是最优选择；中高程度共址多见于低竞争强度、低进入壁垒、本国市场规模小且市场规模差异大的情形；完全共址则出现在高竞争强度、低先行者优势、本国市场规模较小时；而高进入壁垒叠加低市场规模差异与较强的外来者劣势，会导向相反的"完全互相回避"结果；研究强调在全球扩张决策中需重点关注竞争对手，限制对手增长空间并抢先进入关键市场往往是制胜关键。</dd></div>
+          </dl>
+          <a class="src" href="https://doi.org/10.1057/s41267-026-00914-2">DOI 10.1057/s41267-026-00914-2 ↗</a>
+        </div>
+      </div>
+    </details>
+    <details class="journal">
+      <summary><span class="j-name">Journal of Management <span class="abbr">JOM</span></span><span class="j-right"><span class="pill pill-partial">无新增</span><span class="chevron">▶</span></span></summary>
+      <div class="j-body"><p class="note-inline">最新记录仍为created 2026-10-08的《Transaction Hazards Through Ideological Filters...》，本窗口无更晚新增。</p></div>
+    </details>
+    <details class="journal">
+      <summary><span class="j-name">Organization Science</span><span class="j-right"><span class="pill pill-partial">无新增</span><span class="chevron">▶</span></span></summary>
+      <div class="j-body"><p class="note-inline">最新记录仍为created 2026-10-09的3篇论文，本窗口无更晚新增。</p></div>
+    </details>
+    <details class="journal" open>
+      <summary><span class="j-name">Strategic Management Journal <span class="abbr">SMJ</span></span><span class="j-right"><span class="pill pill-found">新增1篇</span><span class="chevron">▶</span></span></summary>
+      <div class="j-body">
+        <div class="paper">
+          <h4>A platform for change? Core component innovations, complementor adaptation, and multihoming in platform-based ecosystems</h4>
+          <p class="byline"><span class="date">created 2026-10-17T03:11:21Z</span> · Shiva Agarwal（The University of Texas at Austin, McCombs School of Business）· Ram Ranganathan（The University of Texas at Austin, McCombs School of Business）</p>
+          <dl class="facts">
+            <div><dt>数据</dt><dd>Apple五次重大iOS系统发布的细粒度数据，覆盖App开发者在各次更新前后的行为。</dd></div>
+            <div><dt>方法</dt><dd>采用溯因法（abductive approach），考察Apple核心组件创新发生后App开发者的响应；区分架构变化究竟体现为"跨平台标准化"还是"平台特定差异化"，并分析二者对开发者协同创新与多归属（multihoming，即同时向竞争平台iOS/Android扩散）倾向的不同影响。</dd></div>
+            <div><dt>结论</dt><dd>发布后时期，互补者（开发者）在iOS上协同创新增加的同时，也更可能向竞争平台多归属扩散；标准化型架构变化会同时刺激协同创新与多归属（尤其是当更新使iOS更接近Android时），差异化型变化则会降低扩散倾向；该行为在高价值开发者中最为显著。研究揭示平台治理的核心张力：通过接口治理使平台具备可扩展性，但也削弱了平台在自身演化过程中对互补者的掌控力。</dd></div>
+          </dl>
+          <a class="src" href="https://doi.org/10.1002/smj.70136">DOI 10.1002/smj.70136 ↗</a>
+        </div>
+      </div>
+    </details>
+
+    <h3 class="discipline">市场营销 <span class="count">· 4本</span></h3>
+    <details class="journal">
+      <summary><span class="j-name">Journal of Consumer Research <span class="abbr">JCR</span></span><span class="j-right"><span class="pill pill-partial">无新增</span><span class="chevron">▶</span></span></summary>
+      <div class="j-body"><p class="note-inline">最新记录仍为created 2026-09-30，本窗口无更晚新增。</p></div>
+    </details>
+    <details class="journal">
+      <summary><span class="j-name">Journal of Marketing <span class="abbr">JM</span></span><span class="j-right"><span class="pill pill-partial">无新增</span><span class="chevron">▶</span></span></summary>
+      <div class="j-body"><p class="note-inline">最新记录仍为created 2026-10-10的EXPRESS预发布版《The Collecting Mindset...》，本窗口无更晚新增。</p></div>
+    </details>
+    <details class="journal">
+      <summary><span class="j-name">Journal of Marketing Research <span class="abbr">JMR</span></span><span class="j-right"><span class="pill pill-partial">无新增</span><span class="chevron">▶</span></span></summary>
+      <div class="j-body"><p class="note-inline">最新记录仍为created 2026-10-16T03:50:33Z的3篇EXPRESS论文（已在此前报告中收录），本窗口无更晚新增。</p></div>
+    </details>
+    <details class="journal">
+      <summary><span class="j-name">Marketing Science</span><span class="j-right"><span class="pill pill-partial">无新增</span><span class="chevron">▶</span></span></summary>
+      <div class="j-body"><p class="note-inline">最新记录仍为created 2026-10-14T11:30:52Z的《Music Marketing with Generative AI》，本窗口无更晚新增。</p></div>
+    </details>
+
+    <h3 class="discipline">信息系统 <span class="count">· 2本</span></h3>
+    <details class="journal">
+      <summary><span class="j-name">Information Systems Research <span class="abbr">ISR</span></span><span class="j-right"><span class="pill pill-partial">无新增</span><span class="chevron">▶</span></span></summary>
+      <div class="j-body"><p class="note-inline">最新记录仍为created 2026-10-08的《Helping Oneself by Helping a Rival...》，本窗口无更晚新增。</p></div>
+    </details>
+    <details class="journal">
+      <summary><span class="j-name">MIS Quarterly</span><span class="j-right"><span class="pill pill-partial">无新增</span><span class="chevron">▶</span></span></summary>
+      <div class="j-body"><p class="note-inline">最新记录created 2026-08-31，本窗口无更晚新增。</p></div>
+    </details>
+
+    <h3 class="discipline">运营管理 <span class="count">· 4本</span></h3>
+    <details class="journal">
+      <summary><span class="j-name">Journal of Operations Management</span><span class="j-right"><span class="pill pill-partial">无新增</span><span class="chevron">▶</span></span></summary>
+      <div class="j-body"><p class="note-inline">最新实质性研究论文仍为8/19的《Estimating Hierarchical Demand in Retail Operations》（10/8的一则撤稿通知不计入新研究论文），本窗口无新研究论文。</p></div>
+    </details>
+    <details class="journal" open>
+      <summary><span class="j-name">Management Science</span><span class="j-right"><span class="pill pill-found">新增2篇</span><span class="chevron">▶</span></span></summary>
+      <div class="j-body">
+        <div class="paper">
+          <h4>Competition and Diversity in Generative AI</h4>
+          <p class="byline"><span class="date">created 2026-10-16T17:49:06Z</span> · Manish Raghavan（MIT, Sloan School of Management &amp; Department of Electrical Engineering and Computer Science）</p>
+          <dl class="facts">
+            <div><dt>方法</dt><dd>构建博弈论形式模型，研究当内容生产者使用生成式AI时，竞争（如争夺用户或注意力）对内容多样性与社会福利的影响；并以生成式文本与图像模型开展一系列实验加以验证。</dd></div>
+            <div><dt>结论</dt><dd>竞争性市场会筛选出更多样化的AI模型，从而缓解"内容单一化"（monoculture）问题；一个在孤立评测基准下表现良好的生成式AI模型，在竞争性市场中可能反而无法创造价值；研究强调应在模型输出分布的广度上评估生成式AI，尤其是在面向竞争环境部署时；总体而言，生成式AI导致的内容同质化在强竞争下不太可能持续存在。该文已被Itai Ashlagi（市场设计、平台与需求分析领域）接受发表。</dd></div>
+          </dl>
+          <a class="src" href="https://doi.org/10.1287/mnsc.2025.02761">DOI 10.1287/mnsc.2025.02761 ↗</a>
+        </div>
+        <div class="paper">
+          <h4>The Buy-in Effect: When Increasing Initial Effort Encourages Follow-Through</h4>
+          <p class="byline"><span class="date">created 2026-10-16T17:46:30Z</span> · Holly Dykstra（University of Konstanz, Department of Economics；CEPR）· Shibeal O'Flaherty（King's College London, School for Government）· Ashley Whillans（Harvard Business School, Negotiation, Organizations &amp; Markets Unit）</p>
+          <dl class="facts">
+            <div><dt>数据</dt><dd>与某州交通部合作开展的拼车平台田野实验，以及一项在线任务众包平台实验。</dd></div>
+            <div><dt>方法</dt><dd>检验在注册流程中增加适度"摩擦"（初始投入门槛）是否会提升后续坚持行为；拼车平台实验中采用意向处理（intent-to-treat）分析以区分选择效应与因果效应。</dd></div>
+            <div><dt>结论</dt><dd>更繁琐的注册流程导致注册人数减少25%，但整体使用量反而上升；意向处理分析显示，经历更繁琐注册流程的参与者四个月内每周拼车次数达到对照组的1.6倍，使总体出行次数增加（尽管用户数更少）；第二项在线任务实验中，注册更繁琐的参与者次日留存率高出37%，完成工作量也更多；研究提示，当目标是"坚持投入"而非"初始获客"时，刻意增加注册摩擦可能是一种被忽视的有效策略。资助来源包括University of Konstanz、Harvard University Pershing Square Foundation for Human Research与Harvard Business School。</dd></div>
+          </dl>
+          <a class="src" href="https://doi.org/10.1287/mnsc.2023.03600">DOI 10.1287/mnsc.2023.03600 ↗</a>
+        </div>
+      </div>
+    </details>
+    <details class="journal" open>
+      <summary><span class="j-name">Manufacturing &amp; Service Operations Management <span class="abbr">M&amp;SOM</span></span><span class="j-right"><span class="pill pill-found">新增2篇</span><span class="chevron">▶</span></span></summary>
+      <div class="j-body">
+        <div class="paper">
+          <h4>Dialysis Clinic Patient Flow and Work Design</h4>
+          <p class="byline"><span class="date">created 2026-10-16T15:26:32Z</span> · Vincent Slaugh（Cornell University, SC Johnson College of Business）· Andre Augusto Cire（University of Toronto Scarborough, Department of Management）</p>
+          <dl class="facts">
+            <div><dt>数据/背景</dt><dd>美国约43.3万名晚期肾衰竭患者依赖血液透析维生，约7,600家门诊透析诊所每年提供超250亿美元的相关治疗；每次治疗涉及患者护理技师（PCT）执行的"上机"与"下机"两项任务。</dd></div>
+            <div><dt>方法</dt><dd>分析当前通行的"推送式"（push）排班方式（技师与工位空闲即立即开始上机），并提出两种替代方案：错开上机/下机时间以减少空闲的"交错式"（interlaced）方案，和由两名技师分别专注上机/下机、工位数加倍的"串联式"（tandem）方案；在恒定治疗时长下推导各方案完工时间的闭式解，并通过数值实验验证在异质治疗时长与随机任务时间/到达下结论的稳健性。</dd></div>
+            <div><dt>结论</dt><dd>交错式排班在同质治疗时长下完工时间最短，串联式配置则能降低每名患者所需人工投入；管理启示在于应将关注点从"推送效率"转向"最小化工位空闲时间"；向交错式或串联式转型并适当延长标准作业时间（如将常见的15/15分钟上机/下机标准调整为25/20分钟），可在不增加人工成本的前提下缓解工作压力、提升患者安全。</dd></div>
+          </dl>
+          <a class="src" href="https://doi.org/10.1287/msom.2025.0719">DOI 10.1287/msom.2025.0719 ↗</a>
+        </div>
+        <div class="paper">
+          <h4>Enhancing Safety Signaling: Integrating Clinical Trials and Post-Marketing Adverse Event Reports</h4>
+          <p class="byline"><span class="date">created 2026-10-16T15:26:32Z</span> · Fernanda Bravo（University of California, Los Angeles, Anderson School of Management）· Lawrence Yunliang Chen（UC Berkeley, Industrial Engineering and Operations Research Department）· John Silberholz（MIT, Operations Research / Statistics）</p>
+          <dl class="facts">
+            <div><dt>数据</dt><dd>真实临床试验数据与FDA不良事件自发报告系统（FAERS）数据的大规模数值研究。</dd></div>
+            <div><dt>方法</dt><dd>提出贝叶斯框架以改进药物安全信号检测中的假设生成环节：一是将上市前临床试验数据与上市后观察性数据相结合；二是利用常见不良反应信息来估计并校正罕见不良反应检测中的偏差。</dd></div>
+            <div><dt>结论</dt><dd>纳入临床试验数据可大幅降低信号检测成本，利用常见不良反应进行去偏进一步提升效果；该方法改善了约1%不良反应事件的决策判断，对应预期成本节约1.5%-2.3%（约3,200万至1.59亿美元），且在参数适度错误设定下仍保持稳健；研究表明，仅利用现有监管数据即可支持更高效、更及时的上市后监测假设生成流程。</dd></div>
+          </dl>
+          <a class="src" href="https://doi.org/10.1287/msom.2024.0890">DOI 10.1287/msom.2024.0890 ↗</a>
+        </div>
+      </div>
+    </details>
+    <details class="journal">
+      <summary><span class="j-name">Operations Research</span><span class="j-right"><span class="pill pill-partial">无新增</span><span class="chevron">▶</span></span></summary>
+      <div class="j-body"><p class="note-inline">最新记录仍为created 2026-10-15T17:00:01Z的《Online Decisions with (Biased) Offline Data》（已在此前报告中收录），本窗口无更晚新增。</p></div>
+    </details>
+  </section>
+
+  <!-- ================= ECONOMICS TOP 5 ================= -->
+  <section id="econ">
+    <div class="section-head">
+      <h2 class="section-title">经济学五大顶刊</h2>
+      <div class="section-note">AER · QJE · JPE · Econometrica · ReStud</div>
+    </div>
+    <p class="lede">五刊经Crossref核查最新created记录，与此前所有报告已收录DOI排重。<b>本窗口AER、QJE、JPE、Econometrica、ReStud均无新增</b>。</p>
+
+    <details class="journal">
+      <summary><span class="j-name">American Economic Review <span class="abbr">AER</span></span><span class="j-right"><span class="pill pill-partial">无新增</span><span class="chevron">▶</span></span></summary>
+      <div class="j-body"><p class="note-inline">10月号整期多篇研究论文均created于2026-10-01T12:41:51Z，本窗口无更晚新增批次。</p></div>
+    </details>
+    <details class="journal">
+      <summary><span class="j-name">Quarterly Journal of Economics <span class="abbr">QJE</span></span><span class="j-right"><span class="pill pill-partial">无新增</span><span class="chevron">▶</span></span></summary>
+      <div class="j-body"><p class="note-inline">最新研究论文仍为created 2026-10-01T11:48:42Z的《Retrieval Failures and Consumption Smoothing...》，本窗口无更晚新增。</p></div>
+    </details>
+    <details class="journal">
+      <summary><span class="j-name">Journal of Political Economy <span class="abbr">JPE</span></span><span class="j-right"><span class="pill pill-partial">无新增</span><span class="chevron">▶</span></span></summary>
+      <div class="j-body"><p class="note-inline">最新记录仍为created 2026-10-15T18:25:25Z的《A Theory of Economic Coercion and Fragmentation》与《Closing Ranks: Organized Labor and Immigration》（均已在此前报告中收录），本窗口无更晚新增。</p></div>
+    </details>
+    <details class="journal">
+      <summary><span class="j-name">Econometrica</span><span class="j-right"><span class="pill pill-partial">无新增</span><span class="chevron">▶</span></span></summary>
+      <div class="j-body"><p class="note-inline">最新一批研究论文均created于2026-09-14T11:53:17Z，本窗口无更晚新增，已连续多日无变化。</p></div>
+    </details>
+    <details class="journal">
+      <summary><span class="j-name">Review of Economic Studies <span class="abbr">ReStud</span></span><span class="j-right"><span class="pill pill-partial">无新增</span><span class="chevron">▶</span></span></summary>
+      <div class="j-body"><p class="note-inline">最新记录仍为created 2026-10-09T11:48:42Z的《The Direct and Indirect Effects of Online Job Search Advice》与《Quality Regulation and Competition...》，本窗口无更晚新增。</p></div>
+    </details>
+  </section>
+
+  <!-- ================= SCHOLARS ================= -->
+  <section id="scholars">
+    <div class="section-head">
+      <h2 class="section-title">学者动态</h2>
+      <div class="section-note">20位学者 · 覆盖2026-10-16至10-17 · 尽力搜索，非LinkedIn API</div>
+    </div>
+    <p class="lede">对高频博客/专栏渠道直接抓取存档页核实窗口内的发布记录，其余学者用WebSearch补充检索。<b>本次确认3人</b>在窗口内有新公开动态：Tyler Cowen、Paul Krugman、Justin Wolfers——三人恰好都围绕"通胀统计与实际体感的差距"这一话题从不同角度发声。</p>
+
+    <div class="tier">
+      <div class="tier-label"><span class="dot" style="background:var(--good)"></span>本次确认窗口内有新公开动态（3人）</div>
+      <div class="scholar">
+        <div class="scholar-head"><span class="scholar-name">Tyler Cowen <span class="scholar-org">George Mason / Mercatus Center</span></span><span class="scholar-date">10/16–10/17</span></div>
+        <p>Marginal Revolution博客直接抓取存档页核实，10/16至10/17新发布3篇本人署名新帖（此前报告已收录10/16发布的《On Bergman's Persona》与《I guest host the NYT podcast and interview Dwarkesh》）：《Friday assorted links》（10/16 12:42pm，九条链接合集，涵盖多个主题）、《New Matt Faherty study of the NSF》（10/17 12:55am，评述Matt Faherty关于NSF元科学研究的新报告，呼应白宫《Science: A New Golden Age》报告提出的联邦科学政策改革）、《Solving for the equilibrium?》（10/17 3:34am，介绍一项由独立开发者运行的实验：16个AI代理——8个Claude、8个GPT-4o——各持1000聪真实比特币互动百轮后，4个代理资金近乎翻倍、2个被清零、最富的3个代理合计持有超过一半比特币，代理自发找到了"剥削"策略，相关原始交易数据已公开）。</p>
+        <a href="https://marginalrevolution.com/">查看博客 ↗</a>
+      </div>
+      <div class="scholar">
+        <div class="scholar-head"><span class="scholar-name">Paul Krugman <span class="scholar-org">CUNY</span></span><span class="scholar-date">10/16</span></div>
+        <p>Substack存档页直接抓取核实，确认新发布《The Bad News on Inflation Just Keeps Coming》（10/16）。文章指出特朗普接手了一个此前已以较低代价基本控制住通胀的经济体，但最新生产者价格指数（PPI）涨幅超预期，主因柴油价格上涨并沿供应链传导；Krugman认为特朗普的关税与军事行动是通胀抬升的根源，其试图达成的俄罗斯柴油交易未能缓解局面，而特朗普本人则选择否认问题存在（无论是故意误导还是确实缺乏认知）；文中援引调查数据，55%的受访者认为通胀"完全没有"得到控制，暗示这可能在即将到来的中期选举中带来政治代价。</p>
+        <a href="https://paulkrugman.substack.com/p/the-bad-news-on-inflation-just-keeps">查看文章 ↗</a>
+      </div>
+      <div class="scholar">
+        <div class="scholar-head"><span class="scholar-name">Justin Wolfers <span class="scholar-org">University of Michigan</span></span><span class="scholar-date">10/16</span></div>
+        <p>Platypus Economics newsletter直接核实，确认新发布《The $7.26 Cappuccino Problem》（10/16）。文章以作者在底特律机场买到一杯7.26美元卡布奇诺为切入点，解释官方CPI数据显示当前通胀率为3.7%、但普通消费者体感远高于此的三个心理学原因：价格上涨在加油站等场景格外"显眼"；损失厌恶使涨价带来的痛感远大于同等降价带来的快感；以及"望远镜效应"（telescoping）——人们倾向于将当前价格与记忆模糊的多年前价格对比，而非真正意义上一年前的价格。Wolfers认为官方统计数字本身可信，但个体实际感受会因所在地区与消费结构不同而存在差异。此文与同日Krugman的通胀评论、本周早些时候Cowen关注的通胀话题形成有趣的三方呼应，但三人论证角度与结论侧重并不相同。</p>
+        <a href="https://newsletter.platypuseconomics.com/p/the-726-cappuccino-problem">查看文章 ↗</a>
+      </div>
+    </div>
+
+    <div class="tier">
+      <div class="tier-label"><span class="dot" style="background:var(--none)"></span>本次检索，未能确认窗口内新动态（17人）</div>
+      <div class="scholar">
+        <p style="margin:0;">
+        <b>John Cochrane</b>（Hoover Institution / Stanford；The Grumpy Economist存档页直接抓取核实，最新仍为10/14《Affordability Trilogy, Part 3》，窗口内无更晚新帖）·
+        <b>Jeremy Siegel</b>（Wharton；WisdomTree Weekly Siegel Commentary存档页直接抓取核实，最新一期仍为10/12《Rising Real Rates Signal Stronger Growth...》，窗口内无更晚新一期）·
+        <b>Aswath Damodaran</b>（NYU Stern；Musings on Markets博客核实，最新帖仍为10/8《Stock Prices, Earnings and Cashflows: The AI Effect plays through!》，窗口内无新帖）·
+        <b>Jón Steinsson</b>（UC Berkeley；WebSearch未检索到窗口内新的公开发言）·
+        <b>Emi Nakamura</b>（UC Berkeley；WebSearch未检索到窗口内新的公开发言）·
+        <b>Raghuram Rajan</b>（Chicago Booth；WebSearch核实，近期信息仍为10/27 Ripple Swell 2026峰会邀请预告，窗口内无新发言内容）·
+        <b>Robert Shiller</b>（Yale；Project Syndicate专栏页核实，未检索到窗口内新文章标题与日期，标记为<b>不确定</b>）·
+        <b>Ivo Welch</b>（UCLA；个人博客存在但未检索到窗口内具体帖子标题与日期，标记为<b>不确定</b>）·
+        <b>Cliff Asness</b>（AQR；AQR官网"Cliff's Perspective"专栏确认存在，但未检索到窗口内具体新发布的文章标题与日期）·
+        <b>Kenneth French</b>（Dartmouth Tuck；未检索到窗口内新动态）·
+        <b>Campbell Harvey</b>（Duke；WebSearch检索到其2026年多篇既有研究成果（如与Hasbrouck、Saleh合著的去中心化交易所综述，以及"CFOs Meet LLMs"），但未检索到可确认落在本窗口内的新公开动态）·
+        <b>Andrew Lo</b>（MIT Sloan；WebSearch仅检索到既有报道，未检索到窗口内新公开动态）·
+        <b>Lubos Pastor</b>（Chicago Booth / EFA主席，未发现窗口内公开发言）·
+        <b>Stefan Nagel</b>（Chicago Booth；未检索到可确认落在窗口内的具体新动态）·
+        <b>Luigi Zingales</b>（Chicago Booth；Capitalisn't播客最新一期仍为9/24《The Workplace Is a Dictatorship?》，未检索到窗口内新单集）·
+        <b>Nouriel Roubini</b>（NYU Stern；Project Syndicate专栏最新仍为10/2《Why Is the Global Economy So Resilient?》，窗口内无更晚新发布）·
+        <b>Daron Acemoglu</b>（MIT；Project Syndicate专栏最新仍为9月《Distorted Intelligence at the AI Frontier》，窗口内无更晚新发布）
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= CONFERENCES / CFP / HOT TOPICS ================= -->
+  <section id="conferences">
+    <div class="section-head">
+      <h2 class="section-title">会议 · 征稿 · 研究热点</h2>
+      <div class="section-note">AFA / WFA / EFA / NBER SI / SFS Cavalcade / AEA / FMA</div>
+    </div>
+    <p class="lede">会议信息变化较慢，本次重点核实FMA年会最后一天安排与NBER征稿列表；AFA/WFA/EFA/NBER SI/SFS Cavalcade/AEA沿用此前报告已核实的细节，未做深入复核。</p>
+
+    <h3 class="discipline">主要会议动态</h3>
+    <div class="sources-grid">
+      <div class="source-card">
+        <h4>AFA 年会 <span class="pill pill-partial">沿用此前报告</span></h4>
+        <p>2027-01-03至05 · 华盛顿特区（Westin Washington DC Downtown）。常规论文提交截止（2026-03-15）已过，本次未重新核查，沿用此前报告内容。</p>
+      </div>
+      <div class="source-card">
+        <h4>WFA 年会 <span class="pill pill-partial">沿用此前报告</span></h4>
+        <p>2027-06-27至30，美国加州Indian Wells（Grand Hyatt Indian Wells Resort）。投稿截止仍为2026-11-18 PST午夜，提交费$100，本次未重新核查。</p>
+      </div>
+      <div class="source-card">
+        <h4>EFA 年会 <span class="pill pill-partial">沿用此前报告</span></h4>
+        <p>第54届EFA年会2027年8月18-21日于丹麦Aarhus大学举行，会议主席Allan Timmermann；正式CFP仍预计2026-11-25发布，本次未重新核查。</p>
+      </div>
+      <div class="source-card">
+        <h4>NBER Summer Institute <span class="pill pill-partial">沿用此前报告</span></h4>
+        <p>第50届确认2027-07-12至30举行，剑桥(Cambridge, MA)，场馆为Royal Sonesta Hotel，本次未重新核查。</p>
+      </div>
+      <div class="source-card">
+        <h4>SFS Cavalcade N.A. <span class="pill pill-partial">沿用此前报告</span></h4>
+        <p>2027届由Notre Dame Mendoza商学院主办，2027-05-18至21；CFP截止日期仍未公布，会议主席为Stefano Giglio（Yale）、Stavros Panageas（UCLA Anderson）、Margarita Tsoutsoura（WashU St. Louis），本次未重新核查。</p>
+      </div>
+      <div class="source-card">
+        <h4>AEA / ASSA 年会 <span class="pill pill-partial">沿用此前报告</span></h4>
+        <p>2027-01-03至05 · 华盛顿特区。注册已于2026-09-15开放，早鸟截止12-1（$250），之后及现场$300，本次未重新核查。</p>
+      </div>
+      <div class="source-card" style="grid-column:1/-1;">
+        <h4>FMA 年会 <span class="pill pill-found">进行至最后一天</span></h4>
+        <p>2026-10-14至17 · 美国佛罗里达州坦帕（JW Marriott Tampa Water Street），今日（周六，10/17）为会议最后一天。据官方会议日程，当日注册台与Placement Center开放时间均为7:30am-11:30am（较前几日的全天开放时间缩短，为闭会日安排）；上午8:30-10:00am有多场平行分会场，涵盖私募基金（Private Funds）、机器学习（Machine Learning）、劳动政策（Labor Policy）、人机决策（Human-AI Decisions）、创业（Entrepreneurship）、高管与董事特质对公司决策的影响（Executive and Director Traits in Corporate Decision Making）、散户交易与信息（Retail Trading and Information）、股权发行（Equity Issuance）等主题。其余细节与此前报告一致，本次未逐一复核完整日程。</p>
+      </div>
+    </div>
+
+    <h3 class="discipline">期刊 / NBER Special Issue 征稿</h3>
+    <p class="lede" style="margin-top:0;">本次重新核查NBER官方征稿列表，条目数与具体清单<b>均与此前报告完全一致，共15项Calls for Papers + 2项Calls for Proposals（共17项），未发生变化</b>；最近截止日期仍为<b>2026-10-28</b>（距今约11天）。</p>
+    <ul class="newslist">
+      <li><span class="h-title">The Economics of Firearm Markets, Crime, and Gun Violence</span><span class="h-meta">截止 2026-10-28</span><a href="https://www.nber.org/calls-papers-and-proposals">↗</a></li>
+      <li><span class="h-title">50th Annual International Seminar on Macroeconomics</span><span class="h-meta">截止 2026-11-01</span><a href="https://www.nber.org/calls-papers-and-proposals">↗</a></li>
+      <li><span class="h-title">Assessing the US Medical Innovation System</span><span class="h-meta">截止 2026-11-02</span><a href="https://www.nber.org/calls-papers-and-proposals">↗</a></li>
+      <li><span class="h-title">i3 Open Data Fellows Program（proposal）</span><span class="h-meta">截止 2026-11-03</span><a href="https://www.nber.org/calls-papers-and-proposals">↗</a></li>
+      <li><span class="h-title">Inflation: The 34th NBER-TCER-CEPR TRIO Conference</span><span class="h-meta">截止 2026-11-20</span><a href="https://www.nber.org/calls-papers-and-proposals">↗</a></li>
+      <li><span class="h-title">Demographic Forces and US Labor Market Dynamics</span><span class="h-meta">截止 2026-12-01</span><a href="https://www.nber.org/calls-papers-and-proposals">↗</a></li>
+      <li><span class="h-title">Japan Project Meeting 2027</span><span class="h-meta">截止 2026-12-01</span><a href="https://www.nber.org/calls-papers-and-proposals">↗</a></li>
+      <li><span class="h-title">The Economics of Community Colleges</span><span class="h-meta">截止 2026-12-10</span><a href="https://www.nber.org/calls-papers-and-proposals">↗</a></li>
+      <li><span class="h-title">Race and Stratification in the Economy</span><span class="h-meta">截止 2026-12-10</span><a href="https://www.nber.org/calls-papers-and-proposals">↗</a></li>
+      <li><span class="h-title">Tariffs and Economic Performance</span><span class="h-meta">截止 2026-12-16</span><a href="https://www.nber.org/calls-papers-and-proposals">↗</a></li>
+      <li><span class="h-title">Measuring and Modeling Market Power in the Labor Market</span><span class="h-meta">截止 2027-01-13</span><a href="https://www.nber.org/calls-papers-and-proposals">↗</a></li>
+      <li><span class="h-title">Spatial Spillovers from Transport Infrastructure Investments</span><span class="h-meta">截止 2027-01-14</span><a href="https://www.nber.org/calls-papers-and-proposals">↗</a></li>
+      <li><span class="h-title">Emerging Scholars in Health and Aging（proposal）</span><span class="h-meta">截止 2027-01-31</span><a href="https://www.nber.org/calls-papers-and-proposals">↗</a></li>
+      <li><span class="h-title">Compensation of Top Executives: Determinants and Consequences</span><span class="h-meta">截止 2027-02-03</span><a href="https://www.nber.org/calls-papers-and-proposals">↗</a></li>
+      <li><span class="h-title">Economic Analysis of Regulation</span><span class="h-meta">截止 2027-02-09</span><a href="https://www.nber.org/calls-papers-and-proposals">↗</a></li>
+      <li><span class="h-title">Health and Healthcare Variations across the Population</span><span class="h-meta">截止 2027-02-11</span><a href="https://www.nber.org/calls-papers-and-proposals">↗</a></li>
+      <li><span class="h-title">Innovation in the Agricultural and Food System</span><span class="h-meta">截止 2027-02-15</span><a href="https://www.nber.org/calls-papers-and-proposals">↗</a></li>
+    </ul>
+
+    <h3 class="discipline">研究热度信号</h3>
+    <p class="note-inline" style="margin-top:0;"><b>arXiv q-fin</b>直接抓取recent listing核实：抓取时最新仍为10/16（周五）批次，共<b>17篇</b>，与此前报告一致，截至抓取时刻尚未看到10/17新批次上线。<b>RePEc NEP-FMK</b>核实仍维持<b>NEP-FMK-2026-09-28</b>（10篇）为最新一期，未发布新一期。</p>
+  </section>
+
+  <!-- ================= OTHER SOURCES ================= -->
+  <section id="sources">
+    <div class="section-head">
+      <h2 class="section-title">其他可用信息源</h2>
+      <div class="section-note">真实近期条目 · 点击展开</div>
+    </div>
+    <p class="lede">本次窗口内6个信息源（除Google Scholar/Semantic Scholar为静态说明外），<b>Wharton Knowledge新增2条</b>；arXiv q-fin、RePEc NEP-FMK、HBS Working Knowledge、Chicago Booth Review、Stanford GSB Insights均无更晚新增；CFA Institute Enterprising Investor核实最新仍为10/12；SSRN仍未能确认窗口内具体新条目。</p>
+
+    <details class="journal">
+      <summary><span class="j-name">SSRN Financial Economics Network</span><span class="j-right"><span class="pill pill-none">未能确认</span><span class="chevron">▶</span></span></summary>
+      <div class="j-body">
+        <p class="note-inline">papers.ssrn.com直接访问仍返回403，WebSearch侧面检索未能定位到窗口内（10/16-10/17）具体新工作论文标题与可验证发布日期，维持<b>未能确认</b>。</p>
+      </div>
+    </details>
+
+    <details class="journal">
+      <summary><span class="j-name">arXiv q-fin</span><span class="j-right"><span class="pill pill-partial">无新批次</span><span class="chevron">▶</span></span></summary>
+      <div class="j-body">
+        <p class="note-inline">直接抓取recent listing确认，抓取时最新仍为10/16（周五）批次，共17篇（含q-fin交叉列入条目），与此前报告收录的批次一致；截至抓取时刻（美国东部时间10/17凌晨）尚未看到新一批上线，本窗口暂无新批次。</p>
+        <a class="src" href="https://arxiv.org/list/q-fin/recent">arXiv q-fin recent ↗</a>
+      </div>
+    </details>
+
+    <details class="journal">
+      <summary><span class="j-name">RePEc / IDEAS <span class="abbr">NEP-FMK</span></span><span class="j-right"><span class="pill pill-partial">无新一期</span><span class="chevron">▶</span></span></summary>
+      <div class="j-body">
+        <p class="note-inline">直接核实ideas.repec.org/n/nep-fmk/，最新一期仍为NEP-FMK-2026-09-28（10篇），本窗口未发布新一期。</p>
+      </div>
+    </details>
+
+    <details class="journal" open>
+      <summary><span class="j-name">商学院知识站点</span><span class="j-right"><span class="pill pill-found">Wharton新增2条</span><span class="chevron">▶</span></span></summary>
+      <div class="j-body">
+        <p class="note-inline"><b>Wharton Knowledge</b>核实（knowledge.wharton.upenn.edu），新增2条此前报告未收录的播客：10/16《The Business of Signing a Superstar Athlete》（Ken Shropshire，探讨签约超级明星运动员——如LeBron James——背后的商业逻辑）与10/14《Why Gen Z Is Choosing Sports Betting Over Retirement Savings》（探讨Z世代为何更倾向于体育博彩而非养老储蓄的行为经济学分析），此前报告最新收录至10/13。<b>HBS Working Knowledge</b>核实（library.hbs.edu/working-knowledge），最新仍为10/15的航运减碳相关文章（主角学者Aliya Korganbekova；该站点页面标题现显示为《Show Consumers What's Cheaper to Ship—and Online Shopping Gets Greener》，与此前报告收录的同日同一篇文章标题有出入，判断为网站对同一篇文章的标题做了调整，非新文章），本窗口无更晚新增。<b>Chicago Booth Review</b>核实，首页仍为8月的《Can AI Map Wall Street's Genome?》等文章，无更晚新增。<b>Stanford GSB Insights</b>核实，最新仍为10/8《Just 5% of VCs Make Most of the Profits》，无更晚新增。</p>
+      </div>
+    </details>
+
+    <details class="journal">
+      <summary><span class="j-name">CFA Institute <span class="abbr">Enterprising Investor</span></span><span class="j-right"><span class="pill pill-partial">无更晚新增</span><span class="chevron">▶</span></span></summary>
+      <div class="j-body">
+        <p class="note-inline">该站点现址为rpc.cfainstitute.org/blogs/enterprising-investor；通过WebSearch定位到具体文章列表，确认最新仍为10/12《Where are all the Portfolio Managers' Large Language Models?》，其后另有10/9《401(k) Investment Menus Are Getting Cheaper—and Higher Quality》、10/8《How Customer Concentration and Digital Maturity Affect Company Valuations》等较早文章，均未晚于10/12。本窗口（10/16-10/17）未检索到更晚的新文章。</p>
+      </div>
+    </details>
+
+    <div class="sources-grid" style="margin-top:10px;">
+      <div class="source-card"><h4>Google Scholar / Semantic Scholar</h4><p>检索工具而非信息流，本报告未强行拉取"近期内容"，仅作为静态说明保留。</p></div>
+    </div>
+  </section>
+
+  <!-- ================= METHODOLOGY ================= -->
+  <section id="methodology">
+    <div class="section-head">
+      <h2 class="section-title">数据说明与局限</h2>
+    </div>
+    <div class="callout">
+      <h4>如何生成本报告</h4>
+      <ul>
+        <li>本报告覆盖2026-10-16至10-17。对29本监测期刊逐一通过Crossref期刊端点（<code>api.crossref.org/journals/&lt;ISSN&gt;/works?sort=created&amp;order=desc</code>，每刊抓取6条记录）核查最新created记录，并与此前所有报告已收录的DOI逐一比对排重。排重后，<b>本窗口内JAE、JIBS、SMJ、MgmtSci（2篇）、MSOM（2篇）共5刊7篇新增</b>；JF、JFE、RFS、JFQA、UTD24其余15刊、AER/QJE/JPE/Econometrica/ReStud本窗口均无新增。对新增论文逐一通过Crossref abstract字段（JIBS、SMJ、MgmtSci、MSOM均提供完整摘要）与WebSearch交叉核实作者机构、方法与数据；JAE论文《The Good Idea Dilemma》Crossref未提供摘要，WebSearch仅检索到其曾在学术会议上以同名展示，未能确认具体方法、数据与结论，已在报告中如实标注"未能确认"而非推测性概括；JIBS论文作者机构同样由Crossref缺失、改用作者所属机构WU Vienna University of Economics and Business的公开页面核实并标注。</li>
+        <li>学者动态板块采用<b>直接抓取高频学者存档页</b>（Marginal Revolution、Paul Krugman Substack、The Grumpy Economist、Musings on Markets、Platypus Economics、WisdomTree Weekly Siegel Commentary存档）+WebSearch补充检索其余学者的方式。本次确认<b>Tyler Cowen、Paul Krugman、Justin Wolfers</b>三人在窗口内有新公开动态，且三人内容恰好均围绕"通胀统计数字与实际体感差距"这一话题，属于巧合式的话题共振而非互相呼应。其余17位学者本次检索未能确认落在窗口内的新动态。</li>
+        <li>会议板块本次重点核实FMA年会最后一天安排：今日（10/17，第4天/最后一天）注册台与Placement Center开放时间缩短为7:30am-11:30am，上午8:30-10:00am有多场平行分会场；AFA、WFA、EFA、NBER Summer Institute、SFS Cavalcade、AEA/ASSA本次未重新核查，沿用此前报告中已核实的细节。NBER期刊/专刊征稿列表本次重新核查，条目数与具体清单均与此前报告完全一致（15项Calls for Papers + 2项Calls for Proposals，共17项），最近截止日期仍为2026-10-28，未发生变化。</li>
+        <li>其他信息源方面，<b>arXiv q-fin</b>抓取时最新仍为10/16批次（17篇），截至抓取时刻未见10/17新批次；<b>RePEc/IDEAS NEP-FMK</b>核实仍维持NEP-FMK-2026-09-28为最新一期；<b>Wharton Knowledge</b>新增10/14、10/16两条此前报告未收录的播客条目；HBS Working Knowledge、Chicago Booth Review、Stanford GSB Insights均无更晚新增；<b>CFA Institute Enterprising Investor</b>本次通过WebSearch定位到具体文章列表与日期，确认最新仍为10/12，未检索到更晚新文章；SSRN仍因403限制未能确认窗口内具体新条目。</li>
+      </ul>
+    </div>
+  </section>
+
+  <footer>
+    生成时间 2026-10-17 · 覆盖窗口 2026-10-16至2026-10-17 · 数据来源见各条目链接 · 本报告为内容生成产物，推送由独立的定时任务完成
+  </footer>
+
+</div>
+</body>
+</html>
